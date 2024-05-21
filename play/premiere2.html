@@ -1,8 +1,7 @@
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 <script>
 if (window.top == window.self) {
-	window.location.href = "https://www.google.com/";
+	window.location.href = "https://sinalpublico.github.io/";
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -49,37 +48,74 @@ function devtoolIsOpening() {
     let after = new Date().getTime();
     if (after - before > 200) {
         document.write(" Dont open Developer Tools. ");
-        window.location.replace("https://www.google.com/");
+        window.location.replace("https://sinalpublico.github.io/");
     }
     setTimeout(devtoolIsOpening, 100);
 }
 devtoolIsOpening();
 </script>
 
-  <!DOCTYPE html>
-  <html>
 
-  <head>
-    <title>Play</title>
+<!--PLAYER-->
+<!doctype html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: black;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-      iframe {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            border: 0;
+            overflow: hidden;
+        }
     </style>
-  </head>
+    <meta name="referrer" content="none">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/player-v3.1.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script>
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+    </script>
+</head>
+<body>
+<div id="player"></div>
+<script>
+    var playerInstance = jwplayer("player");
+    playerInstance.setup({
+        playlist: [{
+            "sources": [{
+                "image": "https://upload.wikimedia.org/wikipedia/pt/a/a2/Logo_Premiere_FC_2018.png",
+                "default": false,
+                "type": "application/dash+xml",
+                "file": "https://cdnapisec.kaltura.com/p/0/sp/0/playManifest/entryId/1_sruumdrm/deliveryProfileId/23003/protocol/https/format/mpegdash/manifest.mpd",
+                "drm": {
+                    "widevine": {
+                        "url": "https://udrmv3.kaltura.com/cenc/widevine/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh6YmdaaHZKbE9XNVJwaVV5UG0zQ056b195d213LVBVZEZKVmJ5QlNqY0hCUUplZmlVTnZmV2JjZFQ5N1FLUHhoN2trNG9IYUotNGlCQzJ1dkNXX1ZGWE1WSzJGZkFPRlZPUndiUEE2TUowbUE9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfc3J1dW1kcm0iLCJmaWxlcyI6IiJ9&signature=Bls6Zt5%2FZhbssZxoPZzQaQWrvzw%3D",
+                    }
+                },
+                "label": "0"
+            }]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+        cast: {},
+        sharing: false
+    });
+</script>
 
-  <body>
-<iframe src="https://sinalpublico.weebly.com/embed.html?id=premiere2" allow="encrypted-media" allowfullscreen="" frameborder="0" width="100%" height="100%"></iframe>
+
 </body>
 </html>
