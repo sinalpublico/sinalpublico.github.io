@@ -35,6 +35,7 @@ eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%64%65%62%31%34%66%3
     <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
     <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/vast.js"></script>
     <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
     <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
     <script>
@@ -48,15 +49,16 @@ eval(unescape('%64%6f%63%75%6d%65%6e%74%2e%77%72%69%74%65%28%64%65%62%31%34%66%3
     playerInstance.setup({
         playlist: [{
             "sources": [{
+				{
 					"default": true,
 					"type": "mpd",
 					"file": "https:\/\/cdnapisec.kaltura.com\/p\/2267831\/sp\/2267831\/playManifest\/entryId\/1_0rt9bh6a\/deliveryProfileId\/23003\/protocol\/https\/format\/mpegdash\/manifest.mpd",
 					"drm": {
 						"widevine": {
-							"url": "https:\/\/udrmv3.kaltura.com\/cenc\/playready\/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh3NEoxanNmaVRocjlFc1AzZE12clAzeEhSVUp0SWY1VTdlTmlZRmV3b01FZ1dvVTJnSjBjZnhLRHd0RHcwSzV1cDNwWFQyS1Q4b1hwa3UtWVcyd0xwRHlQN3dITXpCTjh4ZjhnQVR2MHkzMnc9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfMHJ0OWJoNmEiLCJmaWxlcyI6IiJ9&signature=CbMQPHK42XcIxpwhEYMA7pri3io%3D"
+							"url": "https:\/\/udrmv3.kaltura.com\/cenc\/widevine\/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh3NEoxanNmaVRocjlFc1AzZE12clAzeEhSVUp0SWY1VTdlTmlZRmV3b01FZ1dvVTJnSjBjZnhLRHd0RHcwSzV1cDNwWFQyS1Q4b1hwa3UtWVcyd0xwRHlQN3dITXpCTjh4ZjhnQVR2MHkzMnc9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfMHJ0OWJoNmEiLCJmaWxlcyI6IiJ9&signature=CbMQPHK42XcIxpwhEYMA7pri3io%3D"
 						},
 						"playready": {
-							"url": "https:\/\/udrmv3.kaltura.com\/cenc\/widevine\/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh3NEoxanNmaVRocjlFc1AzZE12clAzeEhSVUp0SWY1VTdlTmlZRmV3b01FZ1dvVTJnSjBjZnhLRHd0RHcwSzV1cDNwWFQyS1Q4b1hwa3UtWVcyd0xwRHlQN3dITXpCTjh4ZjhnQVR2MHkzMnc9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfMHJ0OWJoNmEiLCJmaWxlcyI6IiJ9&signature=CbMQPHK42XcIxpwhEYMA7pri3io%3D"
+							"url": "https:\/\/udrmv3.kaltura.com\/cenc\/playready\/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh3NEoxanNmaVRocjlFc1AzZE12clAzeEhSVUp0SWY1VTdlTmlZRmV3b01FZ1dvVTJnSjBjZnhLRHd0RHcwSzV1cDNwWFQyS1Q4b1hwa3UtWVcyd0xwRHlQN3dITXpCTjh4ZjhnQVR2MHkzMnc9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfMHJ0OWJoNmEiLCJmaWxlcyI6IiJ9&signature=CbMQPHK42XcIxpwhEYMA7pri3io%3D"
 						}
 					},
 					"label": "1"
