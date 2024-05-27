@@ -1,71 +1,97 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Rei dos Canais</title>
-      <style type="text/css">
-         body {
-         margin: 0;
-         padding: 0;
-         overflow: hidden;
-         }
-         #player {
-         position: absolute;
-         top: 0;
-         left: 0;
-         right: 0;
-         bottom: 0;
-         height: 100%;
-         width: 100%;
-         overflow: hidden;
-         }
-         #player iframe {
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         }
-      </style>
-      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/player-v3.1.min.css">
-      <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/hotstar.css">
-      <script src="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/jwplayer/jwplayer.latest.js"></script>
-   </head>
-   <body>
-      <script>
-         function getParameterByName(name) {
-           name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-           var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-           var results = regex.exec(location.search);
-           return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-         }
-         var getURL = getParameterByName('get');
-      </script>
-      <div id="player"></div>
-      <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
-      <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
-      <script>
-         var playerInstance = jwplayer("player");
-         playerInstance.setup({
-           playlist: [{
-             "sources": [
-               {
-                 "default": false,
-                 "type": "dash",
-                 "file": atob(getURL),
-                 "label": "0"
-               }
-             ]
-           }],
-           width: "100%",
-           height: "100%",
-           aspectratio: "4:2",
-           autostart: false,
-           cast: {},
-           sharing: {}
-         });
-      </script>
-   </body>
+<html lang="pt_BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="none">
+    <meta name="referrer" content="no-referrer">      
+    <meta name="theme-color" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PLAYER</title>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script disable-devtool-auto src="https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <link rel="stylesheet" type="text/css" href="//sinalpublico.github.io/css/jwplayer.css">
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+   <script type="text/javascript">
+try {
+    document.domain = document.domain;
+    const urlParams = new URLSearchParams(window.location.search);
+    const channelId = urlParams.get('id');
+    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
+    if (channelId) {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const { link, licenses } = data[0];
+</script>
+
+<style type="text/css">
+                body {
+                        margin: 0;
+                        padding: 0;
+                }
+
+                #player {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        height: 100%;
+                        width: 100%;
+                        border: 0;
+                        overflow: hidden;
+                }
+        </style>
+<!-- POPUP --> 
+
+<script type="text/javascript">
+
+</script>
+
+</style>
+</head>
+<body>
+
+<div id="player" style="width:100%;height:100%;text-align:center;"></div>
+<script>
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    playlist: [{
+                        title: "",
+                        sources: [{
+                            default: false,
+                            type: "dash",
+                            file: link,
+                            drm: {
+                                widevine: {
+                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
+                                },
+                                playready: {
+                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
+                                }
+                            },
+                            label: "0"
+                        }]
+                    }],
+                    width: "100%",
+                    height: "100%",
+                    cast: {},
+                    autostart: false,
+                    logo: {
+                        file: '',
+                        link: '',
+                        position: 'top-right'
+                    },
+                    sharing: {}
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+</script>
+</body>
+
 </html>
