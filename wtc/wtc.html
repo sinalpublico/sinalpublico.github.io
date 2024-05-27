@@ -1,108 +1,33 @@
-<html>
-<head>
-    <title>JWPlayer</title>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <meta http-equiv="Content-Language" content="pt-br" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
-    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var allowedDomains = ['sinalpublico.github.io'];
-        var referrer = document.referrer;
-        var isIframe = false;
-
-        try {
-            isIframe = window.self !== window.top;
-        } catch (e) {
-            isIframe = true;
+    <title>Player</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-
-        var currentDomain = window.location.hostname;
-
-        if (!isIframe) {
-            window.location.href = "https://www.google.com";
-        } else if (referrer) {
-            var referrerDomain = new URL(referrer).hostname;
-            if (!allowedDomains.includes(referrerDomain)) {
-                window.location.href = "https://www.google.com";
-            }
-        } else if (!allowedDomains.includes(currentDomain)) {
-            window.location.href = "https://www.google.com";
+        
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            border: none;
         }
-    });
-</script>    
-    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
-    <script>
-        // default options
-        ConsoleBan.init()
-        // custom options
-        ConsoleBan.init({
-          redirect: 'https://www.google.com'
-        })
-      </script>  
-    <script>
-        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
-    </script>
-</head>
+    </style>
+<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com">
+<script src="//reidoscanais.app/embed/stats.php"></script>
 
+
+<script type="text/javascript" src="https://acscdn.com/script/suv5.js"></script></head>
 <body>
-<div id="player"></div>
-<script>
-try {
-    document.domain = document.domain;
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const channelId = urlParams.get('id');
-    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
-
-    if (channelId) {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const { link, licenses } = data[0];
-
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    playlist: [{
-                        title: "",
-                        sources: [{
-                            default: false,
-                            type: "dash",
-                            file: link,
-                            drm: {
-                                widevine: {
-                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
-                                },
-                                playready: {
-                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
-                                }
-                            },
-                            label: "0"
-                        }]
-                    }],
-                    width: "100%",
-                    height: "100%",
-                    cast: {},
-                    autostart: false,
-                    logo: {
-                        file: '',
-                        link: '',
-                        position: 'top-right'
-                    },
-                    sharing: {}
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    } else {
-        console.error('ID do canal não fornecido na URL');
-    }
-} catch (e) {
-    window.location.href = "https://sinalpublico.github.io/sandbox.html";
-}
+<script type="text/javascript">
+    aclib.runPop({
+        zoneId: '8323794',
+    });
 </script>
-</body>
-</html>
+
+
+
+    <iframe src="https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1579" allow="encrypted-media" allowfullscreen="" frameborder="0" marginheight="0px" marginwidth="0px" width="100%" height="100%"></iframe>
+
+
+<iframe width="0" height="0" style="position: absolute; top: -1000px; left: -1000px; visibility: hidden; border: medium none; background-color: transparent;"></iframe><script type="text/javascript" data-adel="useng" src="https://acscdn.com/script/ut.js?cb=1716827970569"></script><a href="https://youradexchange.com/ad/visit.php?al=1" style="display: none; visibility: hidden; position: relative; left: -1000px; top: -1000px;"></a><div id="dontfoid" znid="8323794" style="top: 0px; left: 0px; width: 808px; height: 911px; position: fixed; z-index: 2147483647;"></div></body></html>
