@@ -1,12 +1,23 @@
-<html>
-<head>
-    <title>UFC | JWPlayer</title>
+
+<html><head><script type="text/javascript" charset="utf-8" async="" src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <title>Player</title>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     <meta http-equiv="Content-Language" content="pt-br" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
-    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script> 
+    <link rel="stylesheet" type="text/css" href="//sinalpublico.github.io/css/jwplayer.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/shaka-player/3.1.1/shaka-player.compiled.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/provider.shaka.js"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.core.controls.js"></script>
+    <script src="//pubtrky.com/ut/hb.php"></script>
+    <script src="//acscdn.com/script/aclib.js"></script>
+    <script src="//acscdn.com/script/suv5.js"></script>
+    <script src="//acscdn.com/script/suv5.js"></script>
+    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
     <script>
         jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
     </script>
@@ -20,7 +31,7 @@ try {
 
     const urlParams = new URLSearchParams(window.location.search);
     const channelId = urlParams.get('id');
-    const apiUrl = `https://reidoscanais.app/embed/player.php?l=aHR0cHM6Ly94bi0tLS1pdGJhdmJ2YWNlaXoueG4tLS0tLS0tNDNkYmFiYmNxdnNhYzhhZmJmZHdjb2Vja3ZrbmdkMWZybGd1aGFqOWIubmV0L3d0Yy5waHA/aWQ9MTU3OQ==`;
+    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
 
     if (channelId) {
         fetch(apiUrl)
@@ -66,7 +77,7 @@ try {
         console.error('ID do canal não fornecido na URL');
     }
 } catch (e) {
-    window.location.href = "https://sinalpublico.github.io/sandbox.html";
+    window.location.href = "https://reidoscanais.org/sandbox.html";
 }
 </script>
 </body>
