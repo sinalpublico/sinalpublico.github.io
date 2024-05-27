@@ -7,32 +7,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/player-v3.1.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/hotstar.css">
     <script src="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var allowedDomains = ['sinalpublico.github.io'];
-        var referrer = document.referrer;
-        var isIframe = false;
-
-        try {
-            isIframe = window.self !== window.top;
-        } catch (e) {
-            isIframe = true;
-        }
-
-        var currentDomain = window.location.hostname;
-
-        if (!isIframe) {
-            window.location.href = "https://www.google.com";
-        } else if (referrer) {
-            var referrerDomain = new URL(referrer).hostname;
-            if (!allowedDomains.includes(referrerDomain)) {
-                window.location.href = "https://www.google.com";
-            }
-        } else if (!allowedDomains.includes(currentDomain)) {
-            window.location.href = "https://www.google.com";
-        }
-    });
-</script>    
+    
     <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
     <script>
         // default options
