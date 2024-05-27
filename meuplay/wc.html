@@ -57,6 +57,19 @@ try {
 
 <div id="player" style="width:100%;height:100%;text-align:center;"></div>
 <script>
+try {
+    document.domain = document.domain;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const channelId = urlParams.get('id');
+    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
+
+    if (channelId) {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const { link, licenses } = data[0];
+
                 var playerInstance = jwplayer("player");
                 playerInstance.setup({
                     playlist: [{
