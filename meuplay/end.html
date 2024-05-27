@@ -4,6 +4,32 @@
         body {
             font-family: 'Arial', sans-serif;
         }
+
+        #warning {
+            display: none;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            text-align: center;
+            width: 80%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #warning a {
+            color: #1DA1F2;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        #warning a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -38,23 +64,29 @@
     <script>
         jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
     </script>
+<script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var iframeSrc = urlParams.get("id");
 
+        if (iframeSrc) {
+            var iframe = document.createElement("iframe");
+            iframe.src = iframeSrc;
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.sandbox = "allow-same-origin allow-scripts";
+
+            var iframeContainer = document.createElement("div");
+            iframeContainer.className = "ViostreamIframe";
+            iframeContainer.appendChild(iframe);
+
+            document.body.appendChild(iframeContainer);
+        }
+    };
+</script>
 <body>
 
 <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com">
 <script src="//sinalpublico.github.io/embed/stats.html"></script>
-
-<script>
-window.onload = function() {
-function getParameterByName(name) {
-	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-	results = regex.exec(location.search);
-	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-
-var getURL = getParameterByName('id');
-if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
-</script>
 
 <iframe width="0" height="0" style="position: absolute; top: -1000px; left: -1000px; visibility: hidden; border: medium none; background-color: transparent;"></iframe><script type="text/javascript" data-adel="useng" src="https://acscdn.com/script/ut.js?cb=1716848444558"></script><a href="https://youradexchange.com/ad/visit.php?al=1" style="display: none; visibility: hidden; position: relative; left: -1000px; top: -1000px;"></a><div id="dontfoid" znid="8323794" style="top: 0px; left: 0px; width: 808px; height: 911px; position: fixed; z-index: 2147483647;"></div></body></html>
