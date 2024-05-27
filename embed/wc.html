@@ -1,14 +1,6 @@
 
 <html><head><script<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com">
 
-<script type="text/javascript" src="https://acscdn.com/script/suv5.js"></script></head>
-<body>
-<script type="text/javascript">
-    aclib.runPop({
-        zoneId: '8323794',
-    });
-</script>
-    
 <html><head>
     <title>Player</title>
     <meta charset="UTF-8">
@@ -30,6 +22,34 @@
     <script>
         jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
     </script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var allowedDomains = ['sinalpublico.github.io'];
+        var referrer = document.referrer;
+        var isIframe = false;
+
+        try {
+            isIframe = window.self !== window.top;
+        } catch (e) {
+            isIframe = true;
+        }
+
+        var currentDomain = window.location.hostname;
+
+        if (!isIframe) {
+            window.location.href = "https://www.google.com";
+        } else if (referrer) {
+            var referrerDomain = new URL(referrer).hostname;
+            if (!allowedDomains.includes(referrerDomain)) {
+                window.location.href = "https://www.google.com";
+            }
+        } else if (!allowedDomains.includes(currentDomain)) {
+            window.location.href = "https://www.google.com";
+        }
+    });
+</script>    
+
 </head>
    <style>
         body {
@@ -49,6 +69,7 @@
         }
     </style>
 <body>
+</div><div class="afs_ads ad-placement" style="width: 1px; height: 1px; position: absolute; background: transparent;">&nbsp;</div></div>
 <div id="player"></div>
 <script>
 try {
