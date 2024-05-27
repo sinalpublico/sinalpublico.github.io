@@ -1,55 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
 
-<html>
 <head>
-    <title>UFC | JWPlayer</title>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <meta http-equiv="Content-Language" content="pt-br" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/player-v3.1.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/hotstar.css">
-    <script src="//cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var allowedDomains = ['reidoscanais.com', 'reidoscanais.net', 'reidoscanais.org', 'www.reidoscanais.org', 'www.reidoscanais.net', 'www.reidoscanais.com', 'www.reidoscanais.app', 'reidoscanais.app'];
-        var referrer = document.referrer;
-        var isIframe = false;
-
-        try {
-            isIframe = window.self !== window.top;
-        } catch (e) {
-            isIframe = true;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
         }
 
-        var currentDomain = window.location.hostname;
-
-        if (!isIframe) {
-            window.location.href = "https://www.google.com";
-        } else if (referrer) {
-            var referrerDomain = new URL(referrer).hostname;
-            if (!allowedDomains.includes(referrerDomain)) {
-                window.location.href = "https://www.google.com";
-            }
-        } else if (!allowedDomains.includes(currentDomain)) {
-            window.location.href = "https://www.google.com";
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            border: 0;
+            overflow: hidden;
         }
-    });
-</script>    
-    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
+    </style>
+    <meta name="referrer" content="none">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
     <script>
-        // default options
-        ConsoleBan.init()
-        // custom options
-        ConsoleBan.init({
-          redirect: 'https://www.google.com'
-        })
-      </script>  
-    <script>
-        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
     </script>
 </head>
-
 <body>
-<div id="player"></div>
+    <div id="player"></div>
 <script>
 try {
     document.domain = document.domain;
@@ -105,5 +89,6 @@ try {
     window.location.href = "https://reidoscanais.org/sandbox.html";
 }
 </script>
+    
 </body>
 </html>
