@@ -13,6 +13,28 @@
             border: none;
         }
     </style>
+
+<script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var iframeSrc = urlParams.get("id");
+
+        if (iframeSrc) {
+            var iframe = document.createElement("iframe");
+            iframe.src = iframeSrc;
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.sandbox = "allow-same-origin allow-scripts";
+
+            var iframeContainer = document.createElement("div");
+            iframeContainer.className = "ViostreamIframe";
+            iframeContainer.appendChild(iframe);
+
+            document.body.appendChild(iframeContainer);
+        }
+    };
+</script>
+
 <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com">
 
 
