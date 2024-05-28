@@ -1,110 +1,19 @@
+
 <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com">
-<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script><link rel="dns-prefetch" href="//acscdn.com"><link rel="dns-prefetch" href="//youradexchange.com/script/suurl5.php?r="></script> 
-<link rel="dns-prefetch" href="//sinalpublico.github.io/acscdn/script/aclib.js"></script> 
-<link rel="dns-prefetch" href="//sinalpublico.github.io/embed/stats.html"></script> 
-<link rel="dns-prefetch" href="//acscdn.com/script/aclib.js" />
-<link rel="dns-prefetch" href="//acscdn.com/script/suv5.js" />
-<link rel="dns-prefetch" href="=//acscdn.com/script/ut.js" />
-<link rel="dns-prefetch" href="=//youradexchange.com/ad/visit.php?al=1" />
-<link rel="dns-prefetch" href="=//youradexchange.com/script/suurl5.php?r=" />
-<link rel="dns-prefetch" href="=https://youradexchange.com/script/suurl5.php?r=8323794&chu=%22Chromium%22%3Bv%3D124%2C%20%22Android%20WebView%22%3Bv%3D124%2C%20%22Not-A.Brand%22%3Bv%3D99&chmob=%3F1&chp=Android&cbur=0.3849445645455851&cbiframe=0&cbWidth=980&cbHeight=1680&cbtitle=Player&cbpage=https://sinalpublico.github.io/%3Fl%3DaHR0cHM6Ly9yZWlkb3NjYW5haXMuYXBwL3d0Yy5odG1sP2lkPTE1OTk%253D&cbref=&cbdescription=&cbkeywords=&cbcdn=acscdn.com&ufp=Linux%20aarch64%2FMozilla%2FNetscape%2Ftrue%2Ffalse918x412180en4824%20bits&ts" />
+<script src="//sinalpublico.github.io/embed/stats"></script><style type="text/css">* {user-select: auto !important; -webkit-user-select: auto !important;}</style><input type="hidden" id="inject_idm_text_selection">
 
-<html>
-<head>
-    <title>JWPlayer</title>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <meta http-equiv="Content-Language" content="pt-br" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
-    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var allowedDomains = ['sinalpublico.github.io'];
-        var referrer = document.referrer;
-        var isIframe = false;
 
-        try {
-            isIframe = window.self !== window.top;
-        } catch (e) {
-            isIframe = true;
-        }
-
-        var currentDomain = window.location.hostname;
-
-        if (!isIframe) {
-            window.location.href = "https://www.google.com";
-        } else if (referrer) {
-            var referrerDomain = new URL(referrer).hostname;
-            if (!allowedDomains.includes(referrerDomain)) {
-                window.location.href = "https://www.google.com";
-            }
-        } else if (!allowedDomains.includes(currentDomain)) {
-            window.location.href = "https://www.google.com";
-        }
-    });
-</script>    
-        <script>
-        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
-    </script>
-</head>
-
+<script type="text/javascript" src="https://acscdn.com/script/suv5.js"></script></head>
 <body>
-<div id="player"></div>
-<script>
-try {
-    document.domain = document.domain;
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const channelId = urlParams.get('id');
-    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId};
-
-    if (channelId) {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const { link, licenses } = data[0];
-
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    playlist: [{
-                        title: "",
-                        sources: [{
-                            default: false,
-                            type: "dash",
-                            file: link,
-                            drm: {
-                                widevine: {
-                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
-                                },
-                                playready: {
-                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
-                                }
-                            },
-                            label: "0"
-                        }]
-                    }],
-                    width: "100%",
-                    height: "100%",
-                    cast: {},
-                    autostart: false,
-                    logo: {
-                        file: '',
-                        link: '',
-                        position: 'top-right'
-                    },
-                    sharing: {}
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    } else {
-        console.error('ID do canal não fornecido na URL');
-    }
-} catch (e) {
-    window.location.href = "https://sinalpublico.github.io.html";
-}
+<script type="text/javascript">
+    aclib.runPop({
+        zoneId: '8323794',
+    });
 </script>
-</body>
-</html>
+
+
+
+    <iframe src="https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1579" allow="encrypted-media" allowfullscreen="" frameborder="0" marginheight="0px" marginwidth="0px" width="100%" height="100%"></iframe>
+
+
+<iframe width="0" height="0" style="position: absolute; top: -1000px; left: -1000px; visibility: hidden; border: medium none; background-color: transparent;"></iframe><script type="text/javascript" data-adel="useng" src="https://acscdn.com/script/ut.js?cb=1716857520606"></script><a href="https://youradexchange.com/ad/visit.php?al=1" style="display: none; visibility: hidden; position: relative; left: -1000px; top: -1000px;"></a><a href="https://magerrentshamuel.icu/8d6b814d-8569-4b58-a171-215b46664c83?campaign=390383220&amp;ban=23793464&amp;ssp=Adcash&amp;zone=8323796-1560383409-4269441498&amp;advertiser=168370&amp;country=BR&amp;org=Vivo&amp;platform=Android&amp;ip=2804:431:c7d2:ccbe:d14d:35b9:ae23:a501&amp;device_make=Samsung&amp;redirection_cost=0.00325&amp;clickid=171685752109990TBRTV62804R431Rc7d2RccbeRd14dR35b9Rae23Ra5016V97e" target="_blank" rel="noopener noreferrer" id="dontfoid" znid="8323794" style="top: 0px; left: 0px; width: 980px; height: 1871px; position: fixed; z-index: 2147483647;"></a></body></html>
