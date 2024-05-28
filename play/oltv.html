@@ -1,7 +1,7 @@
 <html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
 <script>
 if (window.top == window.self) {
-	window.location.href = "https://sinalpublico.github.io/";
+	window.location.href = "https://www.google.com.br/";
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -48,7 +48,7 @@ function devtoolIsOpening() {
     let after = new Date().getTime();
     if (after - before > 200) {
         document.write(" Dont open Developer Tools. ");
-        window.location.replace("https://sinalpublico.github.io/");
+        window.location.replace("https://www.google.com.br/");
     }
     setTimeout(devtoolIsOpening, 100);
 }
@@ -94,7 +94,7 @@ devtoolIsOpening();
     <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
    </head>
    <body>
-<script>
+      <script>
         function getParameterByName(name) {
 	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
 	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
@@ -103,6 +103,7 @@ devtoolIsOpening();
       }
 
       var getURL = getParameterByName('id');
+
       if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
       </script>
       <div id="player"></div>
@@ -117,7 +118,6 @@ devtoolIsOpening();
                  "default": false,
                  "type": "dash",
                  "file": atob(getURL),
-                       },
                         "label": "0"
                       }
                  ]
@@ -129,5 +129,6 @@ devtoolIsOpening();
            cast: {},
            sharing: {}
          });
-      </script>   </body>
+      </script>
+   </body>
 </html>
