@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <title>PLAYER</title>
+    <script disable-devtool-auto src='//cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+    <script disable-devtool-auto src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <link rel="stylesheet" href="//sinalpublico.github.io/css/jwplayer.css"></script>
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+          <script type="text/javascript">
+                function getParameterByName(name) {
+                        name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+                        var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+                                results = regex.exec(location.search);
+                        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                }
+                var id = getParameterByName('id');
+                if (id == "#") {
+                        alert('Pagina Anterior');
+                }
+</script>
+
+<style type="text/css">
+                body {
+                        margin: 0;
+                        padding: 0;
+                }
+
+                #player {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        height: 100%;
+                        width: 100%;
+                        border: 0;
+                        overflow: hidden;
+                }
+        </style>
+
+<script type="text/javascript">
+
+</script>
+</style>
+</head>
+<body>
+
+<div id="player" style="width:100%;height:100%;text-align:center;"></div>
+<script>
+if (id == "canaleducacao")
+{
+        url = 'https://cirion-aju.ittv.com.br/CANAL_EDUCACAO/index.mpd?token=63825fa16ef8ad41b95637b7d0dace1ad62a2a46-b823a8017d546b087d76046413c17211-1717522600-1716917800-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "tvcultura")
+{
+        url = 'https://cirion-aju.ittv.com.br/TV_CULTURA/index.mpd?token=f3d052376e6265af7a383124228c91b03ff6963f-b8d2245eba354887b58cc3bcb0e2389e-1717522730-1716917930-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "nosso1")
+{
+        url = 'https://cirion-aju.ittv.com.br/NOSSO_FUTEBOL_LINEAR/index.mpd?token=dbbc74a37b3d12aee1ebd75e6002ed1f69221f77-2ca878f2f08e802a8c12d5964dee5a92-1717522771-1716917971-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "nosso2")
+{
+        url = 'https://cirion-aju.ittv.com.br/NOSSO_FUTEBOL_LINEAR/index.mpd?token=28f19a43f277756dc4bd6473cfb26bb36d54e368-971a4a46a626a682f900c3c85a7e0d7b-1717522793-1716917993-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "tvalese")
+{
+        url = 'https://cirion-aju.ittv.com.br/ALESE/index.mpd?token=275dc7099664f70b057f15cccec3a3016f7d886a-24132aaa8c1e24bbad7c3e4a12993964-1717522822-1716918022-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "tvaperipe")
+{
+        url = 'https://cirion-aju.ittv.com.br/TV_APERIPE/index.mpd?token=8829d312ae82ab9a77662907a1c035379a8d6c53-b5b1bbf462fbee302e87efd141c70ade-1717522857-1716918057-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "nosso3")
+{
+        url = 'https://akamai.ittv.com.br/NOSSO_FUTEBOL_3/index.mpd?token=f2e3aaeb47dfb6edeee70f0984165c03ce1316f5-54ba90581ca7c96b9cfd51832f6fc545-1717522925-1716918125-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "nosso4")
+{
+        url = 'https://akamai.ittv.com.br/NOSSO_FUTEBOL_2/index.mpd?token=3dfaa472b9367137fa70fff7625ffe0a7e41555a-d2ba15d43640e0bb7e05a559d3feb095-1717522961-1716918161-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "sbt")
+{
+        url = 'https://cirion-aju.ittv.com.br/SBT_HD/index.mpd?token=128257c54bdd6214ad6de8ef9fb716d5ff742f82-15c22ac7d6789cabc4d9274543d68f2c-1717523000-1716918200-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "adultswim")
+{
+        url = 'https://cirion-aju.ittv.com.br/ADULT_SWIM/index.mpd?token=8d9d863c5d87827edc1724744488770e4ad65bc6-b00fe2d4c98a6514f74e2dbaf3bc1647-1717523034-1716918234-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "bandsports")
+{
+        url = 'https://cirion-aju.ittv.com.br/BAND_SPORTS/index.mpd?token=b03e61b7cc02d2a8edb314250b4f9d3b0aa42168-1d718d533893fcdd1f5b1c14966e1faa-1717523058-1716918258-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "tntserie")
+{
+        url = 'https://cirion-aju.ittv.com.br/TNTSERIES/index.mpd?token=248286faa038928250888bd27d79c45163183b2f-f6a580d476783b0e4dbcf501f6bf60ab-1717523084-1716918284-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "espn")
+{
+        url = 'https://cirion-aju.ittv.com.br/ESPN_BRASIL/index.mpd?token=8eb170f12e03b5ba82de785d1cb5925ce04192cb-43af46b42270af8d581a96625b183ee7-1717523128-1716918328-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "espn4")
+{
+        url = 'https://cirion-aju.ittv.com.br/ESPN_4/index.mpd?token=d8eb3bd0d1f79b69160155da596c285d6ba0340c-e3ac28ae55e8e8b1d638a8114d09d311-1717523183-1716918383-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "discoverturbo")
+{
+        url = 'https://cirion-aju.ittv.com.br/DISCOVERY_TURBO/index.mpd?token=7de9c7043dce538bc68ae6d0ead872db65fba3d9-1216b82ee6156236e8832a5f1cc6d135-1717523236-1716918436-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "espn2")
+{
+        url = 'https://cirion-aju.ittv.com.br/ESPN_INTERNACIONAL/index.mpd?token=ea132005168e7789020363553722c68c028eb21c-c7c9f0ae19bf74023b07df5e6699e828-1717523308-1716918508-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "space")
+{
+        url = 'https://cirion-aju.ittv.com.br/SPACE/index.mpd?token=8e96ca6c6b188d21a32fcf0ca6fed7d077d0dd0e-2c0ab4e08576dcc21b4c95764df1e9ba-1717523332-1716918532-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "fx")
+{
+        url = 'https://cirion-aju.ittv.com.br/FX_HD/index.mpd?token=8a67cf9fb05a1dc77a3b5a58a16b3e2894767f50-9b497ccdf266b8239ed20b05ec9e94d1-1717523364-1716918564-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "warner")
+{
+        url = 'https://cirion-aju.ittv.com.br/WBTV_Brasil/index.mpd?token=3083d877ae1a35e43f4a34211b2d0497a723cb92-eab40438e7e0332f5b6223981a8d09a4-1717523397-1716918597-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "cartoon")
+{
+        url = 'https://cirion-aju.ittv.com.br/CARTOON_NETWORK/index.mpd?token=e2e89c7df376cfd967ba1847a4a29e543e5879fd-94551d5c422b9f71a6c8863509c206e0-1717523472-1716918672-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "espn3")
+{
+        url = 'https://cirion-aju.ittv.com.br/ESPN_MAIS/index.mpd?token=9984f0c21e9d69bee7c1af65d3490f16fda1c148-4c3d0d19182d05beb67664ad7babac12-1717523526-1716918726-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "tooncast")
+{
+        url = 'https://cdn.ittv.com.br/TOONCAST_BR/index.mpd?filter.tracks=v1a2&token=cde221572f47235a501d03621ad838f3c641e460-b4b6add9267001ec5d57e3f34f7773b5-1717523566-1716918766-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "disney")
+{
+        url = 'https://cirion-aju.ittv.com.br/DISNEY/index.mpd?token=9878341cc684b1a5b5f227dae3229114aa2ef253-ec1905f3b6a08f191008107b9be3eabd-1717523662-1716918862-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "kids")
+{
+        url = 'https://cirion-aju.ittv.com.br/DISCOVERYKIDS/index.mpd?token=09679b39ff6cd68f748d4332ac9e3cc4e2dde4de-bf1d5f0c8edc26a098403a67d451e849-1717523688-1716918888-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+else if (id == "recordnews")
+{
+        url = 'https://cirion-aju.ittv.com.br/RECORD_NEWS/index.mpd?token=e3775596322db17c251e98ec9b5fd83320525f26-21fd364bee2ad3a4320c3a64b60a963e-1717523730-1716918930-65e0e841a218cf5fda20bc04-10000-E1%3A7D%3AB2%3A47%3A66%3AA6%3A5E%3A36';
+}
+
+var playerInstance = jwplayer("player");
+playerInstance.setup({
+	playlist: [{
+		"sources": [
+			{
+				"default": false,
+				"type": "dash",
+				"file": url,
+				"label": "0"
+			}
+		]
+	}],
+	width: "100%",
+	height: "100%",
+	aspectratio: "16:9",
+	autostart: true,
+	cast: true,
+	sharing: false
+});
+</script>
+</body>
+
+</html>
