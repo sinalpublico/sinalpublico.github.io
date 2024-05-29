@@ -99,40 +99,42 @@
             });
     }
 
-    function setupPlayer(data) {
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            playlist: [{
-                "title": data.channel_info.title,
-                "description": data.channel_info.desc,
-                "image": data.channel_info.image,
-                "sources": [{
-                    "default": true,
-                    "type": "hls",
-                    "file": data.stream_link,
-                    "label": "0"
-                }]
-            }],
-            width: "100%",
-            height: "100%",
-            cast: {},
-            autostart: false,
-            logo: {
-                file: '',
-                link: '',
-                position: 'top-right'
-            },
-            sharing: {},
-            advertising: {
-                  client: "vast",
-                  skipoffset: "6",
-                  creativeTimeout: 20000,
-                  requestTimeout: 10000,
-                  vastLoadTimeout: 10000,
-                  tag: "https://code.21wiz.com/ovpaid.php?v=41578cb21de7c43194e35b6af0ca84d8&position=pre"
-                }
-            });
-        }
+if (channelId) {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const { link, licenses } = data[0];
+
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    playlist: [{
+                        title: "",
+                        sources: [{
+                            default: false,
+                            type: "dash",
+                            file: link,
+                            drm: {
+                                widevine: {
+                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
+                                },
+                                playready: {
+                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
+                                }
+                            },
+                            label: "0"
+                        }]
+                    }],
+                    width: "100%",
+                    height: "100%",
+                    cast: {},
+                    autostart: false,
+                    logo: {
+                        file: '',
+                        link: '',
+                        position: 'top-right'
+                    },
+                    sharing: {}
+                });
 
     function getChannelIdFromUrl() {
         const urlParams = new URLSearchParams(window.location.search);
