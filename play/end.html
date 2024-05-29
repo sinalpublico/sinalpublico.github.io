@@ -1,17 +1,13 @@
 
 <html>
 <head>
-    <title>Rei dos Canais</title>
+    <title>JWPlayer</title>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     <meta http-equiv="Content-Language" content="pt-br" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
-    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/vast.js"></script>
-    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
-    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
+    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         var allowedDomains = ['sinalpublico.github.io'];
@@ -27,60 +23,35 @@
         var currentDomain = window.location.hostname;
 
         if (!isIframe) {
+;
         } else if (referrer) {
             var referrerDomain = new URL(referrer).hostname;
             if (!allowedDomains.includes(referrerDomain)) {
-                ;
+;
             }
         } else if (!allowedDomains.includes(currentDomain)) {
-            ;
+;
         }
     });
-</script>
+</script>    
+    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
     <script>
-    (function () {
-        try {
-            var origMethod = document.createElement;
-
-            document.createElement = function (tagName, options) {
-                let element = origMethod.apply(this, [tagName, options]);
-                if(element == null || element.tagName !== "IFRAME") return element;
-
-                element.setAttribute("allow", "autoplay *; fullscreen *;");
-                Object.defineProperty(element, "src", {
-                    get() {
-                        if (!this.hasAttribute("src")) return undefined;
-                        return this.getAttribute("src");
-                    },
-                    set(newValue) {
-                        if (newValue === "javascript:false") newValue = "about:blank";
-                        this.setAttribute("src", newValue);
-                    },
-                    enumerable: false,
-                    configurable: false,
-                });
-
-                var origSet = element.setAttribute;
-                element.setAttribute = function (qualifiedName, value) {
-                    if (qualifiedName === "src" && value === "javascript:false") value = "about:blank";
-                    if (qualifiedName === "allow" && value !== "autoplay *; fullscreen *;") value = "autoplay *; fullscreen *;";
-                    origSet.apply(this, [qualifiedName, value]);
-                }
-
-                return element;
-            }
-        } catch (e) {
-            console.log("Unexpected error", e);
-        }
-    })();
-</script>
-
+        // default options
+        ConsoleBan.init()
+        // custom options
+        ConsoleBan.init({
+          redirect: 'https://www.google.com'
+        })
+      </script>  
+    <script>
+        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
+    </script>
 </head>
-<body style="padding: 0px; margin:0px;">
-<script src="//ssl.p.jwpcdn.com/player/v/8.21.0/jwplayer.js"></script>
-<script> jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc='; </script>
+
+<body>
 <div id="player"></div>
 <script>
+try {
     document.domain = document.domain;
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -123,6 +94,16 @@
                     },
                     sharing: {}
                 });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    } else {
+        console.error('ID do canal não fornecido na URL');
+    }
+} catch (e) {
+;
+}
 </script>
 </body>
 </html>
