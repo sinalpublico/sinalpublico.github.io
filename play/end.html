@@ -27,14 +27,13 @@
         var currentDomain = window.location.hostname;
 
         if (!isIframe) {
-            window.location.href = "https://www.google.com";
         } else if (referrer) {
             var referrerDomain = new URL(referrer).hostname;
             if (!allowedDomains.includes(referrerDomain)) {
-                window.location.href = "https://www.google.com";
+                ;
             }
         } else if (!allowedDomains.includes(currentDomain)) {
-            window.location.href = "https://www.google.com";
+            ;
         }
     });
 </script>
