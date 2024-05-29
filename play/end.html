@@ -81,25 +81,13 @@
 <script> jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc='; </script>
 <div id="player"></div>
 <script>
-    try {
     document.domain = document.domain;
 
-    function fetchStreamData(channelId) {
-        fetch(`https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1599`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'OK') {
-                    setupPlayer(data);
-                } else {
-                    console.error('Erro ao obter dados da API:', data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Erro na requisição:', error);
-            });
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const channelId = urlParams.get('id');
+    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
 
-if (channelId) {
+    if (channelId) {
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
@@ -135,21 +123,6 @@ if (channelId) {
                     },
                     sharing: {}
                 });
-
-    function getChannelIdFromUrl() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const channelId = urlParams.get('id');
-        if (channelId) {
-            fetchStreamData(channelId);
-        } else {
-            console.error('ID do canal não encontrado na URL.');
-        }
-    }
-
-    getChannelIdFromUrl();
-    } catch (e) {
-    ;
-}
 </script>
 </body>
 </html>
