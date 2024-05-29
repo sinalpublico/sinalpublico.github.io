@@ -1,109 +1,60 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>JWPlayer</title>
-    <meta content='width=device-width, initial-scale=1' name='viewport'>
-    <meta http-equiv="Content-Language" content="pt-br" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
-    <script src="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var allowedDomains = ['sinalpublico.github.io'];
-        var referrer = document.referrer;
-        var isIframe = false;
-
-        try {
-            isIframe = window.self !== window.top;
-        } catch (e) {
-            isIframe = true;
-        }
-
-        var currentDomain = window.location.hostname;
-
-        if (!isIframe) {
-;
-        } else if (referrer) {
-            var referrerDomain = new URL(referrer).hostname;
-            if (!allowedDomains.includes(referrerDomain)) {
-;
-            }
-        } else if (!allowedDomains.includes(currentDomain)) {
-;
-        }
-    });
-</script>    
-    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
-    <script>
-        // default options
-        ConsoleBan.init()
-        // custom options
-        ConsoleBan.init({
-          redirect: 'https://www.google.com'
-        })
-      </script>  
-    <script>
-        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrair Conteúdo do Site</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-
 <body>
-<div id="player"></div>
-<script>
-try {
-    document.domain = document.domain;
+    <div id="conteudo"></div>
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const channelId = urlParams.get('id');
-    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1599`;
+    <script>
+        // Função para extrair o conteúdo do site
+        async function extrairConteudo(url) {
+            try {
+                // Faz a solicitação HTTP usando axios
+                const response = await axios.get(url);
 
-    if (channelId) {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const { link, licenses } = data[0];
+                // Verifica se a solicitação foi bem sucedida
+                if (response.status === 200) {
+                    // Obtém o conteúdo HTML da página
+                    const html = response.data;
 
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    playlist: [{
-                        title: "",
-                        sources: [{
-                            default: false,
-                            type: "dash",
-                            file: link,
-                            drm: {
-                                widevine: {
-                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
-                                },
-                                playready: {
-                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
-                                }
-                            },
-                            label: "0"
-                        }]
-                    }],
-                    width: "100%",
-                    height: "100%",
-                    cast: {},
-                    autostart: false,
-                    logo: {
-                        file: '',
-                        link: '',
-                        position: 'top-right'
-                    },
-                    sharing: {}
-                });
+                    // Cria um elemento div temporário para inserir o HTML e extrair o texto
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+
+                    // Extrai o texto da página
+                    const texto = tempDiv.innerText;
+
+                    // Retorna o texto
+                    return texto;
+                } else {
+                    console.error("Erro ao acessar o site:", response.status);
+                    return null;
+                }
+            } catch (error) {
+                console.error("Erro ao fazer a solicitação:", error);
+                return null;
+            }
+        }
+
+        // Teste da função com o URL fornecido
+        const url = "https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1599";
+        extrairConteudo(url)
+            .then(conteudo => {
+                if (conteudo) {
+                    // Exibe o conteúdo no console
+                    console.log(conteudo);
+                    
+                    // Ou exibe o conteúdo em um elemento na página HTML
+                    document.getElementById('conteudo').innerText = conteudo;
+                }
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error("Erro:", error);
             });
-    } else {
-        console.error('ID do canal não fornecido na URL');
-    }
-} catch (e) {
-;
-}
-</script>
+    </script>
 </body>
 </html>
