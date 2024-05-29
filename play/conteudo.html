@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+    <!-- Elemento onde o conteúdo será exibido -->
     <div id="conteudo"></div>
 
     <script>
@@ -28,33 +29,19 @@
                     // Extrai o texto da página
                     const texto = tempDiv.innerText;
 
-                    // Retorna o texto
-                    return texto;
+                    // Exibe o conteúdo dentro do elemento com ID "conteudo"
+                    document.getElementById('conteudo').innerText = texto;
                 } else {
                     console.error("Erro ao acessar o site:", response.status);
-                    return null;
                 }
             } catch (error) {
                 console.error("Erro ao fazer a solicitação:", error);
-                return null;
             }
         }
 
         // Teste da função com o URL fornecido
         const url = "https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=1599";
-        extrairConteudo(url)
-            .then(conteudo => {
-                if (conteudo) {
-                    // Exibe o conteúdo no console
-                    console.log(conteudo);
-                    
-                    // Ou exibe o conteúdo em um elemento na página HTML
-                    document.getElementById('conteudo').innerText = conteudo;
-                }
-            })
-            .catch(error => {
-                console.error("Erro:", error);
-            });
+        extrairConteudo(url);
     </script>
 </body>
 </html>
