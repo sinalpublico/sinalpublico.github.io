@@ -1,82 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-<script>
-if (window.top == window.self) {
-	window.location.href = "https://google.com";
-}
 
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || 
-             e.keyCode === 86 || 
-			 e.keyCode === 83 || 
-             e.keyCode === 85 || 
-			 e.keyCode === 80 || 
-			 e.keyCode === 123 || 
-			 e.keyCode === 73 || 
-             e.keyCode === 74 ||  
-             e.keyCode === 117)) {
-            alert('PROIBIDO');
-            return false;
-        } else {
-            return true;
-        }
-};
-	
-$(document).bind('keydown', function(e) {
-  if(e.ctrlKey && (e.which == 83)) {
-    e.preventDefault();
-    alert('PROIBIDO');
-    return false;
-  }
-});
-$(document).keydown(function (event) {
-    if (event.keyCode == 123) { // Prevent F12
-        return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-        return false;
-    }
-});
-$(document).on("contextmenu", function (e) {        
-    e.preventDefault();
-});
 
-function devtoolIsOpening() {
-    console.clear();
-    let before = new Date().getTime();
-    debugger;
-    let after = new Date().getTime();
-    if (after - before > 200) {
-        document.write(" Dont open Developer Tools. ");
-        window.location.replace("https://www.google.com");
-    }
-    setTimeout(devtoolIsOpening, 100);
-}
-devtoolIsOpening();
-</script>
 
- <script type="text/javascript">
-    function getParameterByName(name) {
-	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-	results = regex.exec(location.search);
-	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
 
-var getURL = getParameterByName('id');
-if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
-</script>
-<script>
-var play = getParameterByName('play');
-
-if (play == "1") {
-play = "true"
-}else{
-	play = "false"
-	}
-</script>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -101,21 +26,42 @@ play = "true"
             overflow: hidden;
         }
     </style>
-    <meta name="referrer" content="none">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
-    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/vast.js"></script>
-    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
-    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-    <script>
-        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-    </script>
-</head>
-<body>
-<div id="player"></div>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+<script type="text/javascript" charset="utf-8" async="" src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+<script type="text/javascript">
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+var getURL = getParameterByName('url');
+var getIMG = getParameterByName('img');
+var getKEY  = getParameterByName('k1');
+var getKEY2  = getParameterByName('k2');
+if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡gina anterior');}
+</script>
 <script>
+var play = getParameterByName('play');
+
+if (play == "1") {
+play = "true"
+}else{
+	play = "false"
+	}
+</script>
+</head>
+
+</div>
+<div id="player"></div>
+
+
+<script type="text/javascript">
 var playerInstance=jwplayer("player");
 
 playerInstance.setup({
@@ -126,23 +72,29 @@ playerInstance.setup({
       "sources": [
         {
           "default": true,
-          "type": "hls",
+          "type": "dash",
           "file": atob(getURL),
-			}
-		]
-	}
-],
-  'width': "100%",
-  'height': "100%",
-  'aspectratio': "16:9",
-  'autostart': true,
-  'cast': {},
+          "drm": {
+            "clearkey": {"keyId": atob(getKEY), "key": atob(getKEY2)}
+          },
+          "label": "0"
+        }
+      ]
+    }],
+    logo: { file: "",  },
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    mute: false,
+    cast: {},
+    sharing: {}
 });
 
 playerInstance.on('play', function() {
-    playerInstance.setCurrentAudioTrack(1); 
+    playerInstance.setCurrentAudioTrack(0); 
 });
-    </script>
+</script>
 
 </body>
 </html>
