@@ -1,0 +1,65 @@
+
+<link rel="stylesheet" href="https://cdn.brcdn.live/arquivos/embed.min.css?v=0.4" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<script type="text/javascript" src="//thaudray.com/5/6162125" async data-cfasync="false"></script>
+<body onselectstart="if (!window.__cfRLUnblockHandlers) return false; return false" oncontextmenu="if (!window.__cfRLUnblockHandlers) return false; return false" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false" onMouseOver="if (!window.__cfRLUnblockHandlers) return false; window.status='..message perso .. '; return true;" data-cf-modified-1df6b6b01bfe07bef1c334cf->
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="1df6b6b01bfe07bef1c334cf-|49" defer></script></head>
+<title>OPCAO 3 - </title></head>
+<body>
+<div class="jwplayer jw-reset jw-skin-glow player live" id="player"></div>
+<script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js" type="1df6b6b01bfe07bef1c334cf-text/javascript"></script>
+<script src="//cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js" type="1df6b6b01bfe07bef1c334cf-text/javascript"></script>
+<style>.dvr-controls[data-dvr-controls] .live-info::before, .bar-fill-2{ background-color:#FF0101 !important; }</style>
+<script type="1df6b6b01bfe07bef1c334cf-text/javascript">
+	ref = document.referrer;
+whitelist = ['futemais.app'];
+match = false;
+if (ref.match(/^https?:\/\/([^\/]+\.)?futemais\.app(\/|$)/i)){
+  match = true;
+}
+if (ref.match(/^https?:\/\/([^\/]+\.)?futemais\.net(\/|$)/i)){
+  match = true;
+}
+if(match)
+{
+
+var player = new Clappr.Player({
+      source: "https://brasil2.cdnagora33.com/hls/canal1/index.m3u8?njasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgknjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmmgnjkhaskdgksndgnasdmgklnsadngklasklgnalsfnnjasfhjaklgnjkhaskdgksndgnasdmgk3mmm",
+      autoPlay: false,
+      width: '100%',
+      height: '100%',
+      liveSyncDuration: 60,
+      maxBufferLength: 60,
+      plugins: {
+    'core': [LevelSelector]
+  },
+     parentId: "#player"
+   }
+     ); 
+
+	  	 }else{
+        document.getElementById("player").innerHTML = "<div style='text-align:center; margin:0 auto; color:#fff;'>Canal Bloqueado <a href='https://play.google.com/store/apps/details?id=fute.da377' target='_blank' style='text-decoration:none; color:red; font-size:20px;'><b style='color:#8ebd0e;'>CLIQUE AQUI PARA ASSISTIR</b></a>gratuitamente.</span>";
+      } 
+
+
+</script>
+<script defer type="1df6b6b01bfe07bef1c334cf-text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4480393,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+_Hasync.push(['Histats.framed_page', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4480393&101" alt="myspace tracker" border="0"></a></noscript>
+</center>
+</body>
+</html>
