@@ -100,13 +100,21 @@ devtoolIsOpening();
 	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
 	results = regex.exec(location.search);
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-      }
+}
 
-      var getURL = getParameterByName('id');
-      var getIMG = getParameterByName('img');
-      var getKEY  = getParameterByName('k1');
-      var getKEY2  = getParameterByName('k2');
-      if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
+var getURL = getParameterByName('url');
+var getKEY  = getParameterByName('k1');
+var getKEY2  = getParameterByName('k2');
+if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡gina anterior');}
+</script>
+<script>
+var play = getParameterByName('play');
+
+if (play == "1") {
+play = "true"
+}else{
+	play = "false"
+	}
       </script>
       <div id="player"></div>
       <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
