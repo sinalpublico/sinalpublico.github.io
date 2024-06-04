@@ -76,6 +76,7 @@ play = "true"
 	}
 </script>
 
+<!--PLAYER-->
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -115,26 +116,24 @@ play = "true"
 <div id="player"></div>
 <script>
 var playerInstance=jwplayer("player");
-
 playerInstance.setup({
-
     playlist: [{
-    
     "image": "",
       "sources": [
         {
           "default": true,
-          "type": "hls",
+          "type": "dash",
           "file": atob(getURL),
-			}
-		]
-	}
-],
-  'width': "100%",
-  'height': "100%",
-  'aspectratio': "16:9",
-  'autostart': true,
-  'cast': {},
+        }
+      ]
+    }],
+    logo: { file: "",  },
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    mute: false,
+    cast: {},
 });
 
 playerInstance.on('play', function() {
