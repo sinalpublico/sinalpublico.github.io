@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt_BR">
 <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
 <script>
 if (window.top == window.self) {
@@ -65,7 +63,7 @@ devtoolIsOpening();
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-var getURL = getParameterByName('url');
+var getURL = getParameterByName('id');
 var getIMG = getParameterByName('img');
 var getKEY  = getParameterByName('k1');
 var getKEY2  = getParameterByName('k2');
@@ -80,8 +78,6 @@ play = "true"
 	play = "false"
 	}
 </script>
-
-
 
 <!--PLAYER-->
 <!DOCTYPE html>
@@ -108,8 +104,13 @@ play = "true"
         }
     </style>
     <meta name="referrer" content="none">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
-    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/vast.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
     <script>
         jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
     </script>
@@ -136,11 +137,13 @@ playerInstance.setup({
         }
       ]
     }],
-  'width': "100%",
-  'height': "100%",
-  'aspectratio': "16:9",
-  'autostart': true,
-  'cast': {},
+    logo: { file: "",  },
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    mute: false,
+    cast: {},
 });
 
 playerInstance.on('play', function() {
