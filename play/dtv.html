@@ -1,61 +1,3 @@
-<html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
-<script>
-if (window.top == window.self) {
-	window.location.href = "https://www.google.com.br/";
-}
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || 
-             e.keyCode === 86 || 
-			 e.keyCode === 83 || 
-             e.keyCode === 85 || 
-			 e.keyCode === 80 || 
-			 e.keyCode === 123 || 
-			 e.keyCode === 73 || 
-             e.keyCode === 74 ||  
-             e.keyCode === 117)) {
-            alert('PROIBIDO');
-            return false;
-        } else {
-            return true;
-        }
-};
-	
-$(document).bind('keydown', function(e) {
-  if(e.ctrlKey && (e.which == 83)) {
-    e.preventDefault();
-    alert('PROIBIDO');
-    return false;
-  }
-});
-$(document).keydown(function (event) {
-    if (event.keyCode == 123) { // Prevent F12
-        return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-        return false;
-    }
-});
-$(document).on("contextmenu", function (e) {        
-    e.preventDefault();
-});
-
-function devtoolIsOpening() {
-    console.clear();
-    let before = new Date().getTime();
-    debugger;
-    let after = new Date().getTime();
-    if (after - before > 200) {
-        document.write(" Dont open Developer Tools. ");
-        window.location.replace("https://www.google.com.br/");
-    }
-    setTimeout(devtoolIsOpening, 100);
-}
-devtoolIsOpening();
-</script>
-
-<!--PLAYER-->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -83,7 +25,6 @@ devtoolIsOpening();
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
         }
         #iframe {
             max-width: 100%;
@@ -135,7 +76,14 @@ devtoolIsOpening();
             url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDMvc3RyZWFtL2hscy8yNjcvMjY3Lm0zdTg=';
         } else if (id == "nick") {
             url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODQvMjg0Lm0zdTg=';
+        } else if (id == "cnnbrasil") {
+            url = 'https://sinalpublico.github.io/play/ultv.html?id=aHR0cHM6Ly9vdHRiLmxpdmUuY2Yud3cuYWl2LWNkbi5uZXQvaWFkLW5pdHJvL2xpdmUvY2xpZW50cy9kYXNoL2VuYy96bXBuY2lkaXd2L291dC92MS81NmI4Mzk4NjNhNzY0MmUyYTk5YThiNTE0NDM0MWFlYS9jZW5jLm1wZA==&k1=NzY4NWI3ZTI2ZGE3Y2RkMTY2ZjUzMjE2NzgzZGUwNzg=&k2=ODliOGEyZDRlMjMzYTg4MzE2OTM2MTVmZTBkMDM1MDk=';
+        } else if (id == "space") {
+            url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS9zcGFjZS9pbmRleC5tcGQ/dG9rZW49NjljZDJmYzQxOGYxNTc5MjhlN2Q5OTZjMTI3ZjZjMDQ3MzNhYTM4ZC1hOGVhNWIwNjY4MmY1NDFmNDQ5OTIwZjJkY2U0MjAxZS0xNzE3Mjk3MTMzLTE3MTcyOTY5NTM=';
+        } else if (id == "telecinepremium") {
+            url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS90ZWxlY2luZXBpcG9jYS9pbmRleC5tcGQ/dG9rZW49NjljZDJmYzQxOGYxNTc5MjhlN2Q5OTZjMTI3ZjZjMDQ3MzNhYTM4ZC1hOGVhNWIwNjY4MmY1NDFmNDQ5OTIwZjJkY2U0MjAxZS0xNzE3Mjk3MTMzLTE3MTcyOTY5NTM=';
         }
+
         // Check if URL is not empty and then create an iframe
         if (url) {
             var iframe = document.createElement('iframe');
