@@ -1,95 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt">
-<head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <style type="text/css">
-        body {
+<html lang="pt_BR">
+<style>
+        body, html {
+            font-family: 'Arial', sans-serif;
+            height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-        }
-        #player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
-        #player iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #iframe {
-            max-width: 100%;
-            max-height: 100%;
-            width: 100%;
-            height: 100%;
         }
     </style>
 </head>
+
 <body>
-    <div id="player"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@latest"></script>
-    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-    <script src="https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+<div id="player"></div>
+
+</div>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+
+    <meta name="referrer" content="none">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
     <script>
         jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-        
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-            var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-        
-        var id = getParameterByName('id');
-        var url = '';
+    </script>
 
-        if (id == "adultswim") {
-            url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS9hZHVsdHN3aW0vaW5kZXgubXBkP3Rva2VuPTY5Y2QyZmM0MThmMTU3OTI4ZTdkOTk2YzEyN2Y2YzA0NzMzYWEzOGQtYThlYTViMDY2ODJmNTQxZjQ0OTkyMGYyZGNlNDIwMWUtMTcxNzI5NzEzMy0xNzE3Mjk2OTUz';
-        } else if (id == "bandsports") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDMvc3RyZWFtL2hscy8yOTAvMjkwLm0zdTg=';
-        } else if (id == "axn") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly91bWJlZHR2LnNob3AvMTRjYW0tMS1jb25xdWlzdGEvdHJhY2tzLXYxYTEvbW9uby5tM3U4';
-        } else if (id == "grande1") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly91bWJlZHR2LnNob3AvMTRjYW0tMS1jb25xdWlzdGEvdHJhY2tzLXYxYTEvbW9uby5tM3U4';
-        } else if (id == "axn") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yNzgvMjc4Lm0zdTg=';
-        } else if (id == "globo") {
-            url = 'https://sinalpublico.github.io/play/ultv.html?url=aHR0cHM6Ly9wb2Mtc2t5MDEyMC5nbGJjZG4ubmV0L0NvbnRlbnQvQ2hhbm5lbC9saXZlXzAxMjAvREFTSC9tYW5pZmVzdC5tcGQ&k1=ZGIxZjQ1ZjJjN2ViMzIyOWE3MmZjY2Q4MmI2MGE2Zjc=&k2=NGUyMDcwNTk1ZGExNmY4N2U2ZTY0NTlhMjZiZTM0ZDY=';
-        } else if (id == "sony") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yNzkvMjc5Lm0zdTg=';
-        } else if (id == "history1") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODEvMjgxLm0zdTg=';
-        } else if (id == "history2") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODIvMjgyLm0zdTg=';
-        } else if (id == "ae") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDMvc3RyZWFtL2hscy8yNjcvMjY3Lm0zdTg=';
-        } else if (id == "nick") {
-            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODQvMjg0Lm0zdTg=';
-        } else if (id == "cnnbrasil") {
-            url = 'https://sinalpublico.github.io/play/ultv.html?id=aHR0cHM6Ly9vdHRiLmxpdmUuY2Yud3cuYWl2LWNkbi5uZXQvaWFkLW5pdHJvL2xpdmUvY2xpZW50cy9kYXNoL2VuYy96bXBuY2lkaXd2L291dC92MS81NmI4Mzk4NjNhNzY0MmUyYTk5YThiNTE0NDM0MWFlYS9jZW5jLm1wZA==&k1=NzY4NWI3ZTI2ZGE3Y2RkMTY2ZjUzMjE2NzgzZGUwNzg=&k2=ODliOGEyZDRlMjMzYTg4MzE2OTM2MTVmZTBkMDM1MDk=';
-        } else if (id == "space") {
-            url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS9zcGFjZS9pbmRleC5tcGQ/dG9rZW49NjljZDJmYzQxOGYxNTc5MjhlN2Q5OTZjMTI3ZjZjMDQ3MzNhYTM4ZC1hOGVhNWIwNjY4MmY1NDFmNDQ5OTIwZjJkY2U0MjAxZS0xNzE3Mjk3MTMzLTE3MTcyOTY5NTM=';
-        } else if (id == "telecinepremium") {
-            url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS90ZWxlY2luZXBpcG9jYS9pbmRleC5tcGQ/dG9rZW49NjljZDJmYzQxOGYxNTc5MjhlN2Q5OTZjMTI3ZjZjMDQ3MzNhYTM4ZC1hOGVhNWIwNjY4MmY1NDFmNDQ5OTIwZjJkY2U0MjAxZS0xNzE3Mjk3MTMzLTE3MTcyOTY5NTM=';
-        }
+<body>
 
-        // Check if URL is not empty and then create an iframe
-        if (url) {
-            var iframe = document.createElement('iframe');
-            iframe.setAttribute('src', url);
-            document.getElementById('player').appendChild(iframe);
+<script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var iframeSrc = urlParams.get("id");
+
+        if (iframeSrc) {
+            var iframe = document.createElement("iframe");
+            iframe.src = iframeSrc;
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.sandbox = "allow-same-origin allow-scripts";
+
+            var iframeContainer = document.createElement("div");
+            iframeContainer.className = "ViostreamIframe";
+            iframeContainer.appendChild(iframe);
+
+            document.body.appendChild(iframeContainer);
         }
-    </script> 
+    };
+</script>
+
 </body>
 </html>
