@@ -39,20 +39,15 @@
             width: 100%;
             height: 100%;
         }
-        html, body, .main, .main iframe {
-            width: 100%;
-            height: 100%;
-        }
     </style>
 </head>
 <body>
-    <div class="main">
-        <button class="meu-botao" onclick="location.reload()">Travou? Clique aqui </button>
         <div id="player"></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@latest"></script>
     <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
     <script>
         jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
         
@@ -70,10 +65,25 @@
             url = 'https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS9hZHVsdHN3aW0vaW5kZXgubXBkP3Rva2VuPTY5Y2QyZmM0MThmMTU3OTI4ZTdkOTk2YzEyN2Y2YzA0NzMzYWEzOGQtYThlYTViMDY2ODJmNTQxZjQ0OTkyMGYyZGNlNDIwMWUtMTcxNzI5NzEzMy0xNzE3Mjk2OTUz';
         } else if (id == "bandsports") {
             url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDMvc3RyZWFtL2hscy8yOTAvMjkwLm0zdTg=';
+        } else if (id == "axn") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly91bWJlZHR2LnNob3AvMTRjYW0tMS1jb25xdWlzdGEvdHJhY2tzLXYxYTEvbW9uby5tM3U4';
         } else if (id == "grande1") {
             url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly91bWJlZHR2LnNob3AvMTRjYW0tMS1jb25xdWlzdGEvdHJhY2tzLXYxYTEvbW9uby5tM3U4';
-        } // Add more conditions for other IDs
-        
+        } else if (id == "axn") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yNzgvMjc4Lm0zdTg=';
+        } else if (id == "globo") {
+            url = 'https://sinalpublico.github.io/play/ultv.html?url=aHR0cHM6Ly9wb2Mtc2t5MDEyMC5nbGJjZG4ubmV0L0NvbnRlbnQvQ2hhbm5lbC9saXZlXzAxMjAvREFTSC9tYW5pZmVzdC5tcGQ&k1=ZGIxZjQ1ZjJjN2ViMzIyOWE3MmZjY2Q4MmI2MGE2Zjc=&k2=NGUyMDcwNTk1ZGExNmY4N2U2ZTY0NTlhMjZiZTM0ZDY=';
+        } else if (id == "sony") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yNzkvMjc5Lm0zdTg=';
+        } else if (id == "history1") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODEvMjgxLm0zdTg=';
+        } else if (id == "history2") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODIvMjgyLm0zdTg=';
+        } else if (id == "ae") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDMvc3RyZWFtL2hscy8yNjcvMjY3Lm0zdTg=';
+        } else if (id == "nick") {
+            url = 'https://sinalpublico.github.io/play/oltv.html?id=aHR0cHM6Ly9kMXI5NHpyd2EzZ25sby5jbG91ZGZyb250Lm5ldC9saXZlc3RvcmUxMDIvc3RyZWFtL2hscy8yODQvMjg0Lm0zdTg=';
+        }
         // Check if URL is not empty and then create an iframe
         if (url) {
             var iframe = document.createElement('iframe');
