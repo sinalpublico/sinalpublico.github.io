@@ -1,64 +1,14 @@
-<html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
-<script>
-if (window.top == window.self) {
-	window.location.href = "";
-}
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || 
-             e.keyCode === 86 || 
-			 e.keyCode === 83 || 
-             e.keyCode === 85 || 
-			 e.keyCode === 80 || 
-			 e.keyCode === 123 || 
-			 e.keyCode === 73 || 
-             e.keyCode === 74 ||  
-             e.keyCode === 117)) {
-            alert('PROIBIDO');
-            return false;
-        } else {
-            return true;
-        }
-};
-	
-$(document).bind('keydown', function(e) {
-  if(e.ctrlKey && (e.which == 83)) {
-    e.preventDefault();
-    alert('PROIBIDO');
-    return false;
-  }
-});
-$(document).keydown(function (event) {
-    if (event.keyCode == 123) { // Prevent F12
-        return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-        return false;
-    }
-});
-$(document).on("contextmenu", function (e) {        
-    e.preventDefault();
-});
-
-function devtoolIsOpening() {
-    console.clear();
-    let before = new Date().getTime();
-    debugger;
-    let after = new Date().getTime();
-    if (after - before > 200) {
-        document.write(" Dont open Developer Tools. ");
-        window.location.replace("");
-    }
-    setTimeout(devtoolIsOpening, 100);
-}
-devtoolIsOpening();
-</script>
-
-
-
-<script>
-var domains = "www.z14.zip,z14.zip,www.tv0800.top,tv0800.top,www.play.gratis,play.gratis,www.app.sofutebol.net,app.sofutebol.net";
+<html>
+<head>
+    <title>Player</title>
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Language" content="pt-br" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
+    <script src="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
+    <script>
+    var domains = "www.z14.zip,z14.zip,www.tv0800.top,tv0800.top,www.play.gratis,play.gratis,www.app.sofutebol.net,app.sofutebol.net,sinalpublico.github.io";
 var domainList = domains.split(",");
 
 function extractHostname(url) {
@@ -74,7 +24,7 @@ if (window.self !== window.top) {
     var hostname = extractHostname(document.referrer);
 
     if (!isInArray(hostname, domainList)) {
-        window.location.href = "";
+        window.location.href = "https://google.com";
     } else {
 
 
@@ -86,66 +36,67 @@ if (window.self !== window.top) {
 
 document.oncontextmenu = document.body.oncontextmenu = function() { return false; };
 
-</script>
-
-
-<!--PLAYER-->
-
-
-
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-
-		#player {
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			height: 100%;
-			width: 100%;
-			border: 0;
-			overflow: hidden;
-		}
-	</style>
-	<meta name="referrer" content="none">
-
-	<script src="../../../content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-	<script>
-		jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-	</script>
+</script>    
+    <script src="https://cdn.jsdelivr.net/npm/console-ban@4.1.0/dist/console-ban.min.js"></script>
+        <script>
+        jwplayer.key = 'ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=';
+    </script>
 </head>
-<body>
-	<div id="player"></div>
 
+<body>
+<div id="player"></div>
 <script>
-    var playerInstance = jwplayer("player");
-    playerInstance.setup({
-        playlist: [{
-            "sources": [{
-                "default": false,
-                "type": "application/dash+xml",
-                "file": "https://cdnapisec.kaltura.com/p/1/sp/1/playManifest/entryId/1_uw19pcd7/deliveryProfileId/22993/protocol/https/format/mpegdash/manifest.mpd",
-                "drm": {
-                    "widevine": {
-                        "url": "https://udrmv3.kaltura.com/cenc/widevine/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh6S0x4ODY0aDgzaURIR3JjWW5adUU5SnllVUljM1VvMTZ1bUM0QnZDSjduMGhhemRBeGpUTi1EQzlmVjA1dEZVZkt3SEJzQXd4V1NKZ01ld3N4d2JmVzRmOFh4bXhvMGR1LVVCYTg3dURydVE9PSIsImFjY291bnRfaWQiOiIyMjY3ODMxIiwiY29udGVudF9pZCI6IjFfdXcxOXBjZDciLCJmaWxlcyI6IiJ9&signature=8Eu7jVsHRXiShTkGFWdszzidYo8%3D",
-                    }
-                },
-                "label": "0"
-            }]
-        }],
-        width: "100%",
-        height: "100%",
-        aspectratio: "16:9",
-        autostart: false,
-        cast: {},
-        sharing: false
-    });
+try {
+    document.domain = document.domain;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const channelId = urlParams.get('id');
+    const apiUrl = `https://xn----itbavbvaceiz.xn-------43dbabbcqvsac8afbfdwcoeckvkngd1frlguhaj9b.net/wtc.php?id=${channelId}`;
+
+    if (channelId) {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const { link, licenses } = data[0];
+
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    playlist: [{
+                        title: "",
+                        sources: [{
+                            default: false,
+                            type: "dash",
+                            file: link,
+                            drm: {
+                                widevine: {
+                                    url: licenses.find(l => l.scheme === 'drm.WIDEVINE_CENC').licenseURL,
+                                },
+                                playready: {
+                                    url: licenses.find(l => l.scheme === 'drm.PLAYREADY_CENC').licenseURL,
+                                }
+                            },
+                            label: "0"
+                        }]
+                    }],
+                    width: "100%",
+                    height: "100%",
+                    cast: {},
+                    autostart: false,
+                    logo: {
+                        file: '',
+                        link: '',
+                        position: 'top-right'
+                    },
+                    sharing: {}
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    } else {
+        console.error('ID do canal não fornecido na URL');
+    }
+} 
 </script>
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4860731,4,600,110,30,00010000']);
@@ -153,11 +104,10 @@ _Hasync.push(['Histats.fasi', '1']);
 _Hasync.push(['Histats.track_hits', '']);
 (function() {
 var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
+hs.src = ('https://play.gratis//s10.histats.com/js15_as.js');
 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
 })();</script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'893477bd9a5b1c8a',t:'MTcxODMwNjc0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'893477bd9a5b1c8a',t:'MTcxODMwNjc0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='https://play.gratis/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 
-
-
-</body></html><!--PLAYER-->
+</body>
+</html>
