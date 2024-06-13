@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/hotstar.css">
     <script src="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
     <script>
-    var domains = "www.z14.zip,z14.zip,www.tv0800.top,tv0800.top,www.play.gratis,play.gratis,www.app.sofutebol.net,app.sofutebol.net,sinalpublico.github.io";
-var domainList = domains.split(",");
+        var allowedDomains = ['sinalpublico.github.io/', 'reidoscanais.net', 'reidoscanais.org', 'www.reidoscanais.org', 'www.reidoscanais.net', 'www.reidoscanais.com', 'www.reidoscanais.app', 'reidoscanais.app'];
+        var domainList = domains.split(",");
 
 function extractHostname(url) {
     var hostname = url.indexOf("://") > -1 ? url.split('/')[2].split(':')[0].split('?')[0] : url.split('/')[0];
