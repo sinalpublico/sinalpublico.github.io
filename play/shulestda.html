@@ -23,8 +23,7 @@ function isInArray(value, array) {
 if (window.self !== window.top) {
     var hostname = extractHostname(document.referrer);
 
-    if (!isInArray(hostname, domainList)) {
-        window.location.href = "https://google.com";
+    if (!isInArray(hostname, domainList));
     } else {
 
 
@@ -95,8 +94,9 @@ try {
             });
     } else {
         console.error('ID do canal não fornecido na URL');
-    }
-} 
+} catch (e) {
+    window.location.href = "https://sinalpublico.github.io/embed/stats.html";
+}
 </script>
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4860731,4,600,110,30,00010000']);
