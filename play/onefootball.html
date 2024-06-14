@@ -1,26 +1,10 @@
- <!DOCTYPE html>
-  <html>
+<script>
+    window.onload = function() {
+        var encodedHTML = "PHNjcmlwdCBkaXNhYmxlLWRldnRvb2wtYXV0byBzcmM9J2h0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9ucG0vZGlzYWJsZS1kZXZ0b29sQGxhdGVzdCc+PC9zY3JpcHQ+DQo8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvY3J5cHRvLWpzLzMuMS45LTEvY3J5cHRvLWpzLmpzIj48L3NjcmlwdD4NCg0KICA8IURPQ1RZUEUgaHRtbD4NCiAgPGh0bWw+DQogIDxoZWFkPg0KICAgIDx0aXRsZT5QbGF5PC90aXRsZT4NCiAgICA8c3R5bGU+DQogICAgICBib2R5LA0KICAgICAgaHRtbCB7DQogICAgICAgIGhlaWdodDogMTAwJTsNCiAgICAgICAgbWFyZ2luOiAwOw0KICAgICAgICBwYWRkaW5nOiAwOw0KICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjazsNCiAgICAgIH0NCg0KICAgICAgaWZyYW1lIHsNCiAgICAgICAgZGlzcGxheTogYmxvY2s7DQogICAgICAgIHdpZHRoOiAxMDAlOw0KICAgICAgICBoZWlnaHQ6IDEwMCU7DQogICAgICAgIGJvcmRlcjogbm9uZTsNCiAgICAgIH0NCiAgICA8L3N0eWxlPg0KICA8L2hlYWQ+DQogIDxib2R5Pg0KPGlmcmFtZSBzcmM9Imh0dHBzOi8vc2luYWxwdWJsaWNvLmdpdGh1Yi5pby9wbGF5L2VtYmVkLmh0bWw/aWQ9aHR0cHM6Ly9yZWNlaXRhc2Zvb2RicmFzaWwuY29tL29uZWZvb3RiYWxsL29uZS5waHAvIiBhbGxvdz0iZW5jcnlwdGVkLW1lZGlhIiBhbGxvd2Z1bGxzY3JlZW49IiIgZnJhbWVib3JkZXI9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjwvaWZyYW1lPjwvYm9keT4NCjwvaHRtbD4NCg==";
+        var decodedHTML = atob(encodedHTML); // Decodifica o HTML codificado em base64
 
-  <head>
-    <title>Play</title>
-    <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: black;
-      }
-
-      iframe {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-    </style>
-  </head>
-
-  <body>
-<iframe src="https://sinalpublico.github.io/play/embed.html?id=https://receitasfoodbrasil.com/onefootball/one.php/" allow="encrypted-media" allowfullscreen="" frameborder="0" width="100%" height="100%"></iframe></body>
-</html>
+        var div = document.createElement("div");
+        div.innerHTML = decodedHTML;
+        document.body.appendChild(div);
+    };
+</script>
