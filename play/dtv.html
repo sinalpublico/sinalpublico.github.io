@@ -1,10 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<style>
+        body, html {
+            font-family: 'Arial', sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div id="player"></div>
+
+</div>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+
+    <meta name="referrer" content="none">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+    <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
+    <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
+    <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script>
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+    </script>
+        
+         <script>
+if (window.top == window.self) {
+	window.location.href = "https://www.google.com.br/";
+}
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+			 e.keyCode === 83 || 
+             e.keyCode === 85 || 
+			 e.keyCode === 80 || 
+			 e.keyCode === 123 || 
+			 e.keyCode === 73 || 
+             e.keyCode === 74 ||  
+             e.keyCode === 117)) {
+            alert('PROIBIDO');
+            return false;
+        } else {
+            return true;
+        }
+};
+	
+$(document).bind('keydown', function(e) {
+  if(e.ctrlKey && (e.which == 83)) {
+    e.preventDefault();
+    alert('PROIBIDO');
+    return false;
+  }
+});
+$(document).keydown(function (event) {
+    if (event.keyCode == 123) { // Prevent F12
+        return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+        return false;
+    }
+});
+$(document).on("contextmenu", function (e) {        
+    e.preventDefault();
+});
+
+function devtoolIsOpening() {
+    console.clear();
+    let before = new Date().getTime();
+    debugger;
+    let after = new Date().getTime();
+    if (after - before > 200) {
+        document.write(" Dont open Developer Tools. ");
+        window.location.replace("https://www.google.com.br/");
+    }
+    setTimeout(devtoolIsOpening, 100);
+}
+devtoolIsOpening();
+</script>
+        
+<body>
+
 <script>
     window.onload = function() {
-        var encodedHTML = "PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJwdF9CUiI+DQo8c3R5bGU+DQogICAgICAgIGJvZHksIGh0bWwgew0KICAgICAgICAgICAgZm9udC1mYW1pbHk6ICdBcmlhbCcsIHNhbnMtc2VyaWY7DQogICAgICAgICAgICBoZWlnaHQ6IDEwMCU7DQogICAgICAgICAgICBtYXJnaW46IDA7DQogICAgICAgICAgICBwYWRkaW5nOiAwOw0KICAgICAgICB9DQogICAgPC9zdHlsZT4NCjwvaGVhZD4NCg0KPGJvZHk+DQo8ZGl2IGlkPSJwbGF5ZXIiPjwvZGl2Pg0KDQo8L2Rpdj4NCiAgICA8c3R5bGU+DQogICAgICAgIGJvZHksIGh0bWwgew0KICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOw0KICAgICAgICAgICAgbWFyZ2luOiAwOw0KICAgICAgICAgICAgcGFkZGluZzogMDsNCiAgICAgICAgfQ0KICAgICAgICANCiAgICAgICAgaWZyYW1lIHsNCiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOw0KICAgICAgICAgICAgd2lkdGg6IDEwMCU7DQogICAgICAgICAgICBoZWlnaHQ6IDEwMHZoOw0KICAgICAgICAgICAgYm9yZGVyOiBub25lOw0KICAgICAgICB9DQogICAgPC9zdHlsZT4NCg0KICAgIDxtZXRhIG5hbWU9InJlZmVycmVyIiBjb250ZW50PSJub25lIj4NCiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBocmVmPSIvL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvc2luYWxwdWJsaWNvL3BseUBtYWluL2Fzc2V0cy9jc3MvcGxheWVyLXYzLjEubWluLmNzcyI+PC9zY3JpcHQ+DQogICAgPHNjcmlwdCBzcmM9Ii8vY2RuanMuY2xvdWRmbGFyZS5jb20vYWpheC9saWJzL2NyeXB0by1qcy8zLjEuOS0xL2NyeXB0by1qcy5qcyI+PC9zY3JpcHQ+DQogICAgPHNjcmlwdCBzcmM9Ii8vd3d3LmdzdGF0aWMuY29tL2N2L2pzL3NlbmRlci92MS9jYXN0X3NlbmRlci5qcz9sb2FkQ2FzdEZyYW1ld29yaz0xIj48L3NjcmlwdD4NCiAgICA8c2NyaXB0IHNyYz0iLy9zc2wucC5qd3BjZG4uY29tL3BsYXllci92LzguMjYuMC9qd3BzcnYuanMiPjwvc2NyaXB0Pg0KICAgIDxzY3JpcHQgc3JjPSIvL2Zhc3RseS5qc2RlbGl2ci5uZXQvbnBtL2Rpc2FibGUtZGV2dG9vbEBsYXRlc3QvZGlzYWJsZS1kZXZ0b29sLm1pbi5qcyI+PC9zY3JpcHQ+DQogICAgPHNjcmlwdCBzcmM9Ii8vY29udGVudC5qd3BsYXRmb3JtLmNvbS9saWJyYXJpZXMvS0I1ekZ0N0EuanMiPjwvc2NyaXB0Pg0KICAgIDxzY3JpcHQ+DQogICAgICAgIGp3cGxheWVyLmtleSA9ICdYU3VQNHFNbCs5dEsxN1FOYis0K3RoMlBtOUFXZ01PL2NZSDhDSTBIR0dyN2Jkam8nOw0KICAgIDwvc2NyaXB0Pg0KICAgICAgICANCiAgICAgICAgIDxzY3JpcHQ+DQppZiAod2luZG93LnRvcCA9PSB3aW5kb3cuc2VsZikgew0KCXdpbmRvdy5sb2NhdGlvbi5ocmVmID0gImh0dHBzOi8vd3d3Lmdvb2dsZS5jb20uYnIvIjsNCn0NCg0KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY29udGV4dG1lbnUnLCBldmVudCA9PiBldmVudC5wcmV2ZW50RGVmYXVsdCgpKTsNCmRvY3VtZW50Lm9ua2V5ZG93biA9IGZ1bmN0aW9uKGUpIHsNCiAgICAgICAgaWYgKGUuY3RybEtleSAmJiANCiAgICAgICAgICAgIChlLmtleUNvZGUgPT09IDY3IHx8IA0KICAgICAgICAgICAgIGUua2V5Q29kZSA9PT0gODYgfHwgDQoJCQkgZS5rZXlDb2RlID09PSA4MyB8fCANCiAgICAgICAgICAgICBlLmtleUNvZGUgPT09IDg1IHx8IA0KCQkJIGUua2V5Q29kZSA9PT0gODAgfHwgDQoJCQkgZS5rZXlDb2RlID09PSAxMjMgfHwgDQoJCQkgZS5rZXlDb2RlID09PSA3MyB8fCANCiAgICAgICAgICAgICBlLmtleUNvZGUgPT09IDc0IHx8ICANCiAgICAgICAgICAgICBlLmtleUNvZGUgPT09IDExNykpIHsNCiAgICAgICAgICAgIGFsZXJ0KCdQUk9JQklETycpOw0KICAgICAgICAgICAgcmV0dXJuIGZhbHNlOw0KICAgICAgICB9IGVsc2Ugew0KICAgICAgICAgICAgcmV0dXJuIHRydWU7DQogICAgICAgIH0NCn07DQoJDQokKGRvY3VtZW50KS5iaW5kKCdrZXlkb3duJywgZnVuY3Rpb24oZSkgew0KICBpZihlLmN0cmxLZXkgJiYgKGUud2hpY2ggPT0gODMpKSB7DQogICAgZS5wcmV2ZW50RGVmYXVsdCgpOw0KICAgIGFsZXJ0KCdQUk9JQklETycpOw0KICAgIHJldHVybiBmYWxzZTsNCiAgfQ0KfSk7DQokKGRvY3VtZW50KS5rZXlkb3duKGZ1bmN0aW9uIChldmVudCkgew0KICAgIGlmIChldmVudC5rZXlDb2RlID09IDEyMykgeyAvLyBQcmV2ZW50IEYxMg0KICAgICAgICByZXR1cm4gZmFsc2U7DQogICAgfSBlbHNlIGlmIChldmVudC5jdHJsS2V5ICYmIGV2ZW50LnNoaWZ0S2V5ICYmIGV2ZW50LmtleUNvZGUgPT0gNzMpIHsgLy8gUHJldmVudCBDdHJsK1NoaWZ0K0kgICAgICAgIA0KICAgICAgICByZXR1cm4gZmFsc2U7DQogICAgfQ0KfSk7DQokKGRvY3VtZW50KS5vbigiY29udGV4dG1lbnUiLCBmdW5jdGlvbiAoZSkgeyAgICAgICAgDQogICAgZS5wcmV2ZW50RGVmYXVsdCgpOw0KfSk7DQoNCmZ1bmN0aW9uIGRldnRvb2xJc09wZW5pbmcoKSB7DQogICAgY29uc29sZS5jbGVhcigpOw0KICAgIGxldCBiZWZvcmUgPSBuZXcgRGF0ZSgpLmdldFRpbWUoKTsNCiAgICBkZWJ1Z2dlcjsNCiAgICBsZXQgYWZ0ZXIgPSBuZXcgRGF0ZSgpLmdldFRpbWUoKTsNCiAgICBpZiAoYWZ0ZXIgLSBiZWZvcmUgPiAyMDApIHsNCiAgICAgICAgZG9jdW1lbnQud3JpdGUoIiBEb250IG9wZW4gRGV2ZWxvcGVyIFRvb2xzLiAiKTsNCiAgICAgICAgd2luZG93LmxvY2F0aW9uLnJlcGxhY2UoImh0dHBzOi8vd3d3Lmdvb2dsZS5jb20uYnIvIik7DQogICAgfQ0KICAgIHNldFRpbWVvdXQoZGV2dG9vbElzT3BlbmluZywgMTAwKTsNCn0NCmRldnRvb2xJc09wZW5pbmcoKTsNCjwvc2NyaXB0Pg0KICAgICAgICANCjxib2R5Pg0KDQo8c2NyaXB0Pg0KICAgIHdpbmRvdy5vbmxvYWQgPSBmdW5jdGlvbigpIHsNCiAgICAgICAgdmFyIHVybFBhcmFtcyA9IG5ldyBVUkxTZWFyY2hQYXJhbXMod2luZG93LmxvY2F0aW9uLnNlYXJjaCk7DQogICAgICAgIHZhciBpZnJhbWVTcmMgPSB1cmxQYXJhbXMuZ2V0KCJpZCIpOw0KDQogICAgICAgIGlmIChpZnJhbWVTcmMpIHsNCiAgICAgICAgICAgIHZhciBpZnJhbWUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCJpZnJhbWUiKTsNCiAgICAgICAgICAgIGlmcmFtZS5zcmMgPSBpZnJhbWVTcmM7DQogICAgICAgICAgICBpZnJhbWUuZnJhbWVCb3JkZXIgPSAiMCI7DQogICAgICAgICAgICBpZnJhbWUuYWxsb3dGdWxsc2NyZWVuID0gdHJ1ZTsNCiAgICAgICAgICAgIGlmcmFtZS5zYW5kYm94ID0gImFsbG93LXNhbWUtb3JpZ2luIGFsbG93LXNjcmlwdHMiOw0KDQogICAgICAgICAgICB2YXIgaWZyYW1lQ29udGFpbmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgiZGl2Iik7DQogICAgICAgICAgICBpZnJhbWVDb250YWluZXIuY2xhc3NOYW1lID0gIlZpb3N0cmVhbUlmcmFtZSI7DQogICAgICAgICAgICBpZnJhbWVDb250YWluZXIuYXBwZW5kQ2hpbGQoaWZyYW1lKTsNCg0KICAgICAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChpZnJhbWVDb250YWluZXIpOw0KICAgICAgICB9DQogICAgfTsNCjwvc2NyaXB0Pg0KDQo8L2JvZHk+DQo8L2h0bWw+";
-        var decodedHTML = atob(encodedHTML); // 
+        var urlParams = new URLSearchParams(window.location.search);
+        var iframeSrc = urlParams.get("id");
 
-        var div = document.createElement("div");
-        div.innerHTML = decodedHTML;
-        document.body.appendChild(div);
+        if (iframeSrc) {
+            var iframe = document.createElement("iframe");
+            iframe.src = iframeSrc;
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
+            iframe.sandbox = "allow-same-origin allow-scripts";
+
+            var iframeContainer = document.createElement("div");
+            iframeContainer.className = "ViostreamIframe";
+            iframeContainer.appendChild(iframe);
+
+            document.body.appendChild(iframeContainer);
+        }
     };
 </script>
+
+</body>
+</html>
