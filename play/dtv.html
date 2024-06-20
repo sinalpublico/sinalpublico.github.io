@@ -1,54 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
-<style>
-        body, html {
-            font-family: 'Arial', sans-serif;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-
-<body>
-<div id="player"></div>
-
-</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Iframe Page</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+        /* Estilos opcionais para o contêiner do iframe */
+        .iframe-container {
+            max-width: 100%;
+            overflow: hidden;
         }
-        
-        iframe {
-            display: block;
+        .iframe-container iframe {
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* altura total da tela */
             border: none;
         }
     </style>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var iframeSrc = urlParams.get("id");
 
-<script>
-    window.onload = function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var iframeSrc = urlParams.get("id");
+            if (iframeSrc) {
+                var iframe = document.createElement("iframe");
+                iframe.src = iframeSrc;
+                iframe.frameBorder = "0";
+                iframe.allowFullscreen = true;
+                iframe.sandbox = "allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation";
 
-        if (iframeSrc) {
-            var iframe = document.createElement("iframe");
-            iframe.src = iframeSrc;
-            iframe.frameBorder = "0";
-            iframe.allowFullscreen = true;
-            iframe.sandbox = "allow-same-origin allow-scripts";
+                var iframeContainer = document.createElement("div");
+                iframeContainer.className = "iframe-container";
+                iframeContainer.appendChild(iframe);
 
-            var iframeContainer = document.createElement("div");
-            iframeContainer.className = "ViostreamIframe";
-            iframeContainer.appendChild(iframe);
-
-            document.body.appendChild(iframeContainer);
-        }
-    };
-</script>
-
+                document.body.appendChild(iframeContainer);
+            }
+        };
+    </script>
 </body>
 </html>
