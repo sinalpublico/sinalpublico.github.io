@@ -141,3 +141,16 @@ main {
     max-width: 700px; /* Defina um valor máximo se desejar */
     margin-right: 10px;
 }
+.widget-content {
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.widget-content a {
+    display: inline-block; /* Faz o link comportar-se como um bloco em linha */
+}
+
+.widget-content a img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do seu contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border: 0; /* Remove a borda padrão do link */
+}
