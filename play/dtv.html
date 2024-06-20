@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER</title>
+    <title>Embedded Iframe Page</title>
     <style>
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* proporção de aspecto 16:9 */
+        body, html {
+            margin: 0;
+            padding: 0;
             overflow: hidden;
+            width: 100%;
+            height: 100%;
         }
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        iframe {
+            display: block;
             width: 100%;
             height: 100%;
             border: none;
@@ -31,15 +29,10 @@
             if (iframeSrc) {
                 var iframe = document.createElement("iframe");
                 iframe.src = iframeSrc;
-                iframe.frameBorder = "0"; // Remover borda do iframe
                 iframe.allowFullscreen = true;
                 iframe.sandbox = "allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation";
 
-                var iframeContainer = document.createElement("div");
-                iframeContainer.className = "iframe-container";
-                iframeContainer.appendChild(iframe);
-
-                document.body.appendChild(iframeContainer);
+                document.body.appendChild(iframe);
             }
         };
     </script>
