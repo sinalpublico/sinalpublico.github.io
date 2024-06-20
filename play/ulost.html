@@ -3,36 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clappr Player</title>
     <style>
         body {
             margin: 0;
             padding: 0;
         }
 
+        #player-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
         #player {
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
-            height: 100%;
             width: 100%;
-            border: 0;
-            overflow: hidden;
+            height: 100%;
         }
     </style>
-    <meta name="referrer" content="none">
-    <!-- Clappr CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.css">
 </head>
 <body>
-<div id="player"></div>
+<div id="player-wrapper">
+    <div id="player"></div>
+</div>
 
-<!-- Clappr JS and related scripts -->
-<script src="//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script> <!-- Google Cast SDK -->
-<script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
-
-<script type="text/javascript">
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest"></script>
+<script>
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -43,39 +43,32 @@
     var getURL = getParameterByName('url');
     var getKEY = getParameterByName('k1');
     var getKEY2 = getParameterByName('k2');
-    if (getURL == "#") {
-        alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');
-    }
-
     var play = getParameterByName('play') === "1";
 
-    var player = new Clappr.Player({
-        source: atob(getURL),
-        parentId: "#player",
-        mute: false,
-        autoPlay: play,
-        width: "100%",
-        height: "100%",
-        poster: "", // You can set a poster image here if needed
-        hideMediaControl: false, // Adjust as needed
-        disableVideoTagContextMenu: true, // Disable right-click menu
-        plugins: {
-            playback: [DashShakaPlayback] // Optional: Add plugins as needed
-        },
-        playback: {
-            preload: 'auto',
-            drm: {
-                clearkey: {
-                    key: atob(getKEY2),
-                    keyId: atob(getKEY)
+    if (getURL === "") {
+        alert('URL do vídeo não especificada.');
+    } else {
+        var player = new Clappr.Player({
+            source: atob(getURL),
+            parentId: "#player",
+            mute: false,
+            autoPlay: play,
+            width: "100%",
+            height: "100%",
+            poster: "", // URL to poster image if needed
+            hideMediaControl: false, // Show media controls
+            disableVideoTagContextMenu: true, // Disable right-click menu
+            playback: {
+                preload: 'auto',
+                drm: {
+                    clearkey: {
+                        key: atob(getKEY2),
+                        keyId: atob(getKEY)
+                    }
                 }
             }
-        }
-    });
-
-    player.on(Clappr.Events.PLAYER_PLAY, function() {
-        player.setCurrentAudioTrack(1); // Example of setting current audio track
-    });
+        });
+    }
 </script>
 
 </body>
