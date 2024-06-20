@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTRASHPOST</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <style>
+        /* Estilos adicionais para melhorar a aparência das imagens */
+        .item {
+            margin-bottom: 20px;
+            position: relative;
+            text-align: center; /* Centraliza o conteúdo */
+        }
+        .item img {
+            position: relative; /* Garante que o posicionamento absoluto seja relativo ao .item */
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .item img:hover {
+            transform: scale(1.1);
+        }
+        .image-caption {
+            position: absolute;
+            top: 10px; /* Posicionamento em relação ao topo da imagem */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0; /* Inicia oculto */
+            transition: opacity 0.3s ease;
+        }
+        .item:hover .image-caption {
+            opacity: 1; /* Mostra o texto ao passar o mouse sobre o item */
+        }
+
+        /* Estilos para o slideshow */
+        .slideshow-container {
+            max-width: 800px; /* Largura máxima desejada */
+            margin: 0 auto 20px; /* Centraliza na página e adiciona margem inferior */
+            position: relative;
+            overflow: hidden; /* Esconde partes das imagens que ultrapassam a largura */
+        }
+        .mySlides {
+            display: none;
+            position: relative;
+            border-radius: 10px; /* Cantos arredondados dos slides */
+        }
+        .mySlides img {
+            width: 100%; /* Garante que a imagem no slideshow ocupe toda a largura do container */
+            height: auto;
+            border-radius: 10px; /* Cantos arredondados das imagens */
+        }
+        .slide-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 10px; /* Cantos arredondados do botão */
+            cursor: pointer;
+        }
+        .slide-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para a seção de pesquisa */
+        .search-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 60%;
+            margin-right: 10px;
+        }
+        .search-button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para a numeração dos slides */
+        .caption-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="profile">
+                <img src="https://i.pinimg.com/564x/fe/92/04/fe9204fdfd040aa7675f63b0f9a0dac4.jpg" alt="Profile Picture">
+                <span class="profile-name">TaldoRafael</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Slideshow section -->
+  
+    <section class="slideshow-container">
+        <div class="mySlides">
+            <a href="https://sinalpublico.github.io/play/dtv.html?id=jogododia" target="_blank">
+                <img src="https://imagens.ne10.uol.com.br/legado/blogsne10/torcedor/uploads/2019/09/JC-ESP0911_JOGOSDODIA.jpg" style="width:100%" alt="JOGO">
+            </a>
+            <button class="slide-button" onclick="window.open('https://sinalpublico.github.io/play/dtv.html?id=jogododia', '_blank')">ASSISTIR AGORA</button>
+        </div>
+
+        <div class="mySlides">
+            <a href="https://sinalpublico.github.io/play/dtv.html?id=history1" target="_blank">
+                <img src="https://i0.wp.com/www.conceituado.com/wp-content/uploads/2018/06/HistoryLogo_960-660x330.jpg" style="width:100%" alt="HISTORY">
+            </a>
+            <button class="slide-button" onclick="window.open('https://sinalpublico.github.io/play/dtv.html?id=history1', '_blank')">ASSISTIR AGORA</button>
+        </div>
+
+        <div class="mySlides">
+            <a href="https://sinalpublico.github.io/play/dtv.html?id=premiereclubes" target="_blank">
+                <img src="https://sinalpublico.github.io/imgs/thumbpremiere.png" style="width:100%" alt="Slide 3">
+            </a>
+            <button class="slide-button" onclick="window.open('https://sinalpublico.github.io/play/dtv.html?id=premiereclubes', '_blank')">ASSISTIR AGORA</button>
+        </div>
+<div class="widget-content">
+<a href="https://gratis.pixbet.com/_/KQ9S2P" target="_top"><img border="0" data-original-height="186" data-original-width="1150" src="/imgs/palpitegratis.png" alt="PALPITE GRATIS"></a>
+</div>
+        <!-- Navigation buttons -->
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+    </section>
+
+    <!-- Seção de pesquisa -->
+    <section class="search-section">
+        <form id="searchForm" onsubmit="return searchImages()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar nome do canal...">
+            <button type="submit" class="search-button">Pesquisar</button>
+        </form>
+    </section>
+
+    <main>
+        <section class="gallery">
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=globo" target="_blank">
+                    <img src="/imgs/globo.png" alt="Globo">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=bandsports" target="_blank">
+                    <img src="/imgs/bandsports.png" alt="Band Sports">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=comedycentral" target="_blank">
+                    <img src="/imgs/comedycentral.png" alt="Comedy Central">
+                </a>
+            </div>
+            <!-- Adicione mais div.item para mais imagens -->
+        </section>
+      
+              <section class="gallery">
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=globo" target="_blank">
+                    <img src="/imgs/globo.png" alt="Globo">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=bandsports" target="_blank">
+                    <img src="/imgs/bandsports.png" alt="Band Sports">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=comedycentral" target="_blank">
+                    <img src="/imgs/comedycentral.png" alt="Comedy Central">
+                </a>
+            </div>
+            <!-- Adicione mais div.item para mais imagens -->
+        </section>
+      
+              <section class="gallery">
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=globo" target="_blank">
+                    <img src="/imgs/globo.png" alt="Globo">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=bandsports" target="_blank">
+                    <img src="/imgs/bandsports.png" alt="Band Sports">
+                </a>
+            </div>
+            <div class="item">
+                <a href="https://sinalpublico.github.io/play/dtv.html?id=comedycentral" target="_blank">
+                    <img src="/imgs/comedycentral.png" alt="Comedy Central">
+                </a>
+            </div>
+            <!-- Adicione mais div.item para mais imagens -->
+        </section>
+      
+    </main>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var slides = document.getElementsByClassName("mySlides");
+            var captionText = document.getElementById("caption");
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+
+            slides[slideIndex - 1].style.display = "block";
+            captionText.innerHTML = slideIndex + " / " + slides.length;
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function openModal(imageUrl) {
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById('modalImage');
+
+            modal.style.display = 'block';
+            modalImg.src = imageUrl;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        function searchImages() {
+            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            var items = document.querySelectorAll('.gallery .item');
+
+            items.forEach(function(item) {
+                var altText = item.querySelector('img').getAttribute('alt').toLowerCase();
+                if (altText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
