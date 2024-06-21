@@ -1,0 +1,83 @@
+<html><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+<script>
+if (window.top == window.self) {
+	window.location.href = "https://google.com";
+}
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+			 e.keyCode === 83 || 
+             e.keyCode === 85 || 
+			 e.keyCode === 80 || 
+			 e.keyCode === 123 || 
+			 e.keyCode === 73 || 
+             e.keyCode === 74 ||  
+             e.keyCode === 117)) {
+            alert('PROIBIDO');
+            return false;
+        } else {
+            return true;
+        }
+};
+	
+$(document).bind('keydown', function(e) {
+  if(e.ctrlKey && (e.which == 83)) {
+    e.preventDefault();
+    alert('PROIBIDO');
+    return false;
+  }
+});
+$(document).keydown(function (event) {
+    if (event.keyCode == 123) { // Prevent F12
+        return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+        return false;
+    }
+});
+$(document).on("contextmenu", function (e) {        
+    e.preventDefault();
+});
+
+function devtoolIsOpening() {
+    console.clear();
+    let before = new Date().getTime();
+    debugger;
+    let after = new Date().getTime();
+    if (after - before > 200) {
+        document.write(" DESABILITADO. ");
+        window.location.replace("https://www.google.com");
+    }
+    setTimeout(devtoolIsOpening, 100);
+}
+devtoolIsOpening();
+</script>
+  
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        iframe {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+  </head>
+
+  <body>
+    <iframe src="https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly90dmJyYXNpbC1zdHJlYW0uZWJjLmNvbS5ici9jaHVua3MubTN1OA==" allow="encrypted-media" allowfullscreen="" frameborder="0" width="100%" height="100%"></iframe>
+</body>
+</html>
