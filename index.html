@@ -11,6 +11,45 @@
 <!-- Page cached by LiteSpeed Cache 6.0.0.1 on 2024-10-10 22:24:56 -->
   </script>
 
+<script type="text/javascript">
+    document.addEventListener("contextmenu", function(e){
+        e.preventDefault();
+    }, false);
+    document.onkeydown = function(e) {
+        if (event.keyCode == 123) {
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'U'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+         return false;
+        }
+    }
+    </script>
+    
+ <script>
+    /*function check(e)
+    {
+    alert(e.keyCode);
+    }*/
+    document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {//Alt+c, Alt+v will also be disabled sadly.
+                alert('DESABILITADO');
+            }
+            return false;
+    };
+    </script>
+    
     <style>
         /* Estilos adicionais para melhorar a aparência das imagens */
         .item {
