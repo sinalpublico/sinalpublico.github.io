@@ -154,3 +154,9 @@ main {
     height: auto; /* Mantém a proporção da imagem */
     border: 0; /* Remove a borda padrão do link */
 }
+body {
+    background-image: url('/imgs/thumbackground.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixa o background para criar um efeito de paralaxe */
+}
