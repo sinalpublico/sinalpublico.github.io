@@ -97,10 +97,7 @@ devtoolIsOpening();
 	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-var getURL = getParameterByName('url');
-var getIMG = getParameterByName('img');
-var getKEY  = getParameterByName('k1');
-var getKEY2  = getParameterByName('k2');
+var getURL = getParameterByName('id');
 if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
 </script>
 <script>
@@ -129,8 +126,6 @@ playerInstance.setup({
           "default": true,
           "type": "dash",
           "file": atob(getURL),
-          "drm": {
-            "clearkey": {"keyId": atob(getKEY), "key": atob(getKEY2)}
           },
           "label": "0"
         }
