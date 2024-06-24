@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
     <meta charset="utf-8">
@@ -54,42 +54,42 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 <script>
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-
-    var getURL = getParameterByName('url');
-    var getKEY = getParameterByName('k1');
-    var getKEY2 = getParameterByName('k2');
+  function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+  var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+  results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+var getURL = getParameterByName('url');
+var getIMG = getParameterByName('img');
+var getKEY  = getParameterByName('k1');
+var getKEY2  = getParameterByName('k2');
 
     if (getURL === "") {
         alert('URL do vídeo não especificada.');
     } else {
-        var player = new Clappr.Player({
-            source: atob(getURL),
-            parentId: "#player",
-            mute: false,
-            autoPlay: play,
-            width: "100%",
-            height: "100%",
-            poster: "", // URL to poster image if needed
-            hideMediaControl: false, // Show media controls
-            disableVideoTagContextMenu: true, // Disable right-click menu
-            plugins: [DashShakaPlayback],
-            playback: {
-                preload: 'auto',
-                drm: {
-                    clearkey: {
+ var player = new Clappr.Player({
+  parentId: '#player',
+  autoPlay: true,
+  plugins: [DashShakaPlayback],
+  source: atob(getURL),
+  shakaConfiguration: {
+    drm: {
+      clearKeys:  {
                         key: atob(getKEY2),
                         keyId: atob(getKEY)
                     }
-                }
-            }
-        });
     }
+  },
+        width: '100%',
+        height: '100%',
+    });
+
+    // Adiciona um listener para remover o banner ao clicar
+    document.getElementById('banner').addEventListener('click', function() {
+        removeBanner();
+        openNewWindow();
+    });
 </script>
 
 </body>
