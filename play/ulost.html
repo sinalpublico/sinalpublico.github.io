@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Language" content="pt-br" />
   <title>PLAYER</title>
+  
+  <!-- Scripts externos -->
   <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-shaka@0.6.2/build/p2p-media-loader-shaka.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clappr/0.2.86/clappr.min.js"></script>
@@ -11,23 +14,26 @@
   <script src="https://cdn.jsdelivr.net/npm/dash-shaka-playback@2.2.1/dist/dash-shaka-playback.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+  <!-- Estilos internos -->
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
     }
+
     #player-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
+
     #player {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
     }
   </style>
 </head>
@@ -37,7 +43,8 @@
   <div id="player"></div>
 </div>
 
-<script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript">
   function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
@@ -45,26 +52,33 @@
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
   }
 
-  var getURL = getParameterByName('url');
-  var getKEY = getParameterByName('k1');
-  var getKEY2 = getParameterByName('k2');
+  var get = getParameterByName('get');
+  var key = getParameterByName('key');
+  var key2 = getParameterByName('key2');
+  var getIMG = getParameterByName('img');
 
-  var player = new Clappr.Player({
-    parentId: '#player',
-    autoPlay: true,
-    plugins: [DashShakaPlayback],
-    source: atob(getURL),
-    shakaConfiguration: {
-      drm: {
-        clearKeys: {
-          keyId: atob(getKEY),
-          key: atob(getKEY2)
+  var playerInstance = new Clappr.Player({
+    source: atob(get),
+    parentId: "#player",
+    width: "100%",
+    height: "100%",
+    autoPlay: false,
+    plugins: [LevelSelector],
+    playback: {
+      dash: {
+        drm: {
+          clearkey: {
+            keyId: atob(key),
+            key: atob(key2)
+          }
         }
       }
     },
-    width: '100%',
-    height: '100%'
+    poster: atob(getIMG)
   });
+
+  // Adiciona o player ao container
+  document.getElementById("player").appendChild(playerInstance.render().el);
 </script>
 
 </body>
