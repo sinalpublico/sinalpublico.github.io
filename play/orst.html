@@ -56,7 +56,10 @@
   <div id="player"></div>
 </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<div id="banner">
+  <!-- Aqui vai o conteúdo do banner, se houver -->
+  <!-- Por exemplo: <img src="banner.jpg" alt="Banner"> -->
+</div>
 
 <script type="text/javascript">
   function getParameterByName(name) {
@@ -72,7 +75,7 @@
   
   if (getID == "#") {
     alert('Vuelve a la página anterior');
-    // 
+    // Aqui pode-se redirecionar ou realizar outra ação necessária
   }
 
   // Função para remover o banner
@@ -88,11 +91,11 @@
     parentId: '#player',
     autoPlay: true,
     plugins: [DashShakaPlayback],
-    source: atob(getID), // 
+    source: atob(getID), // Decodifica o ID, assumindo que está em base64
     shakaConfiguration: {
       drm: {
         clearKeys: {
-          'atob(getKEY)': atob(getKEY2) // 
+          'atob(getKEY)': atob(getKEY2) // Decodifica key1 e key2, assumindo que estão em base64
         }
       }
     },
@@ -100,10 +103,10 @@
     height: '100%'
   });
 
-  // 
+  // Evento para remover o banner e abrir nova janela, se necessário
   document.getElementById('banner').addEventListener('click', function() {
     removeBanner();
-    // openNewWindow(); // 
+    // openNewWindow(); // Implemente openNewWindow() se precisar abrir uma nova janela
   });
 
 </script>
