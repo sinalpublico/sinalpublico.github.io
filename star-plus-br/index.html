@@ -97,7 +97,7 @@ function eventos() {
         var urlValue = obj['url'];
 
         if (urlValue && urlValue !== "#") {
-              var encodedPart = urlValue.split("\/play\/starjwp\/?get=")[1];
+              var encodedPart = urlValue.split("\/embed\/eventos\/?r=")[1];
           var decodedPart = atob(encodedPart);
            var modifiedPart = decodedPart.replace("https://alwaysdomain01.online/85043671.html?get=", "");
 
