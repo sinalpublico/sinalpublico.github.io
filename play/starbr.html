@@ -48,7 +48,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <center>
                 <img src="/img/starbr.png" alt="Star+" width="100" height="60">
-               <h2 style="color: #fff;font-size: 25px;font-weight: 600;">Elige el evento:</h2>
+               <h2 style="color: #fff;font-size: 25px;font-weight: 600;">Escolha o Evento:</h2>
             </center>
  
 <div id="eventos"></div>
@@ -99,7 +99,7 @@ function eventos() {
         var urlValue = obj['url'];
 
         if (urlValue && urlValue !== "#") {
-              var encodedPart = urlValue.split("/play\\/star_jwp\/?get=")[1];
+              var encodedPart = urlValue.split("/play/\/star_jwp\/?get=")[1];
           var decodedPart = atob(encodedPart);
            var modifiedPart = decodedPart.replace("https://sinalpublico.github.io/play/star_jwp.html?get=", "");
 
@@ -107,7 +107,7 @@ function eventos() {
 
           var newUrl = randomURL + modifiedPart + "&title=" + encodeURIComponent(obj['title']);
           var encodedNewUrl = btoa(newUrl);
-          var finalEncodedUrl = "/html/eventos/?r=" + encodedNewUrl;
+          var finalEncodedUrl = "/play/star_jwp?get=" + encodedNewUrl;
         } else {
           finalEncodedUrl = "#";
         }
