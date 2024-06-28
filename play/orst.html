@@ -1,139 +1,100 @@
 <!DOCTYPE html>
-<html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
-<script>
-if (window.top == window.self) {
-	window.location.href = "https://google.com";
-}
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || 
-             e.keyCode === 86 || 
-			 e.keyCode === 83 || 
-             e.keyCode === 85 || 
-			 e.keyCode === 80 || 
-			 e.keyCode === 123 || 
-			 e.keyCode === 73 || 
-             e.keyCode === 74 ||  
-             e.keyCode === 117)) {
-            alert('PROIBIDO');
-            return false;
-        } else {
-            return true;
-        }
-};
-	
-$(document).bind('keydown', function(e) {
-  if(e.ctrlKey && (e.which == 83)) {
-    e.preventDefault();
-    alert('PROIBIDO');
-    return false;
-  }
-});
-$(document).keydown(function (event) {
-    if (event.keyCode == 123) { // Prevent F12
-        return false;
-    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
-        return false;
-    }
-});
-$(document).on("contextmenu", function (e) {        
-    e.preventDefault();
-});
-
-function devtoolIsOpening() {
-    console.clear();
-    let before = new Date().getTime();
-    debugger;
-    let after = new Date().getTime();
-    if (after - before > 200) {
-        document.write(" OFF-LINE. ");
-        window.location.replace("https://www.google.com");
-    }
-    setTimeout(devtoolIsOpening, 100);
-}
-devtoolIsOpening();
-</script>
-
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
   <meta name="referrer" content="none">
-  <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <meta http-equiv="Content-Language" content="pt-br" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@0.6.2/build/p2p-media-loader-core.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-shaka@0.6.2/build/p2p-media-loader-shaka.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/clappr/0.2.86/clappr.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/dash-shaka-playback@2.2.1/dist/dash-shaka-playback.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-   
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
+  <title>PLAYER</title>
 
-        #player-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
 
-        #player {
-            width: 100%;
-            height: 100%;
-        }
+    #player-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-        #banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-        }
+    #player {
+      width: 100%;
+      height: 100%;
+    }
 
-        #banner img {
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-    </style>
+    #banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
 
-<script type="text/javascript">
-  function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-      results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
+    #banner img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  </style>
 
-  var getID = getParameterByName('id');
-  var getKEY = getParameterByName('k1');
-  var getKEY2 = getParameterByName('k2');
-if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡gina anterior');}
-</script>
+  <script type="text/javascript">
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
 
+    var getID = getParameterByName('id');
+    var getKEY = getParameterByName('k1');
+    var getKEY2 = getParameterByName('k2');
+    
+    if (getID == "#") {
+      alert('Vuelve a la página anterior');
+      // Aqui pode-se redirecionar ou realizar outra ação necessária
+    }
+  </script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 </head>
 <body>
 
-<div id="player-container">
-    <div id="player"></div>
+  <div id="player"></div>
 </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-
 <script>
+  // Função para remover o banner
+  function removeBanner() {
+    var banner = document.getElementById('banner');
+    if (banner) {
+      banner.parentNode.removeChild(banner);
+    }
+  }
+
+  // Configuração do player Clappr
   var player = new Clappr.Player({
     parentId: '#player',
     autoPlay: true,
     plugins: [DashShakaPlayback],
-    source: atob(getID), // 
+    source: atob(getID), // Decodifica o ID, assumindo que está em base64
     shakaConfiguration: {
       drm: {
         clearKeys: {
-          'atob(getKEY)': atob(getKEY2) // 
+          [atob(getKEY)]: atob(getKEY2) // Decodifica key1 e key2, assumindo que estão em base64
         }
       }
     },
@@ -141,14 +102,12 @@ if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â
     height: '100%'
   });
 
-    // 
-    document.getElementById('banner').addEventListener('click', function() {
-        removeBanner();
-        openNewWindow();
-    });
-</script>
+  // Evento para remover o banner e abrir nova janela, se necessário
+  document.getElementById('banner').addEventListener('click', function() {
+    removeBanner();
+    // openNewWindow(); // Implemente openNewWindow() se precisar abrir uma nova janela
+  });
 
-<script type="text/javascript"  charset="utf-8">
 </script>
 
 </body>
