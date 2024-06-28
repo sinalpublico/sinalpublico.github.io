@@ -13,103 +13,99 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/dash-shaka-playback@2.2.1/dist/dash-shaka-playback.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
    
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
 
-        #player-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+    #player-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-        #player {
-            width: 100%;
-            height: 100%;
-        }
+    #player {
+      width: 100%;
+      height: 100%;
+    }
 
-        #banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-        }
+    #banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+    }
 
-        #banner img {
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-		
-    </style>
+    #banner img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
 <div id="player-container">
-    <div id="player"></div>
+  <div id="player"></div>
 </div>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 
-<script>
+<script type="text/javascript">
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  var getID = getParameterByName('id');
+  var getKEY = getParameterByName('k1');
+  var getKEY2 = getParameterByName('k2');
+  
+  if (getID == "#") {
+    alert('Vuelve a la página anterior');
     // 
-    function removeBanner() {
-        var banner = document.getElementById('banner');
-        banner.parentNode.removeChild(banner);
+  }
+
+  // Função para remover o banner
+  function removeBanner() {
+    var banner = document.getElementById('banner');
+    if (banner) {
+      banner.parentNode.removeChild(banner);
     }
+  }
 
-    // 
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
-        var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
+  // Configuração do player Clappr
+  var player = new Clappr.Player({
+    parentId: '#player',
+    autoPlay: true,
+    plugins: [DashShakaPlayback],
+    source: atob(getID), // 
+    shakaConfiguration: {
+      drm: {
+        clearKeys: {
+          'atob(getKEY)': atob(getKEY2) // 
+        }
+      }
+    },
+    width: '100%',
+    height: '100%'
+  });
 
-    // 
-    var playerSource = getParameterByName('id');
-    var key1 = getParameterByName('k1');
-    var key2 = getParameterByName('k2');
+  // 
+  document.getElementById('banner').addEventListener('click', function() {
+    removeBanner();
+    // openNewWindow(); // 
+  });
 
-    if (playerSource === "" || key1 === "" || key2 === "") {
-        alert('URL inválida. Verifique os parâmetros na URL.');
-    } else {
-        var player = new Clappr.Player({
-            parentId: '#player',
-            autoPlay: true,
-            plugins: [DashShakaPlayback],
-            source: playerSource, =
-            shakaConfiguration: {
-                drm: {
-                    advanced: {
-                        'com.widevine.alpha': {
-                            persistentState: atob(key1),
-                            videoRobustness: atob(key2)
-                        }
-                    }
-                }
-            },
-            width: '100%',
-            height: '100%',
-        });
-    }
-
-
-    document.getElementById('banner').addEventListener('click', function() {
-        removeBanner();
-        openNewWindow();
-    });
-</script>
-
-<script type="text/javascript"  charset="utf-8">
 </script>
 
 </body>
