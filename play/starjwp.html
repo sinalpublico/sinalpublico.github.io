@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt_BR"><head>
+<html lang="pt_BR">
+<head>
 <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
     <meta name="referrer" content="none">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
-    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>
 
     <style>
         body {
@@ -36,23 +35,26 @@ var getURL = getParameterByName('get');
 var getIMG = getParameterByName('img');
 var getKEY  = getParameterByName('key');
 var getKEY2  = getParameterByName('key2');
-if (getURL == "#") {alert('Vuelve a la página anterior');}
+if (getURL == "#") {alert('Vuelve a la pÃƒÆ’Ã‚Â¡gina anterior');}
 
-var mt = ["live-ftc-na-south-2", "live-ftc-sa-east-2", "live-ftc-sa-east-1"]
-var random = Math.floor(Math.random() * mt.length)
-getURL = getURL.replace("live-ftc-na-south-2", mt[random]);
+
 </script>
 <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
 <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>	
-<div id="player"></div>
-<script>
-var playerInstance=jwplayer("player");
-
+<div id="player"></div><script>    var titleParam = getParameterByName('title');   
+    if (titleParam) {
+        var titleElement = document.getElementById('jw-title jw-reset-text');
+        if (titleElement) {
+            titleElement.innerHTML = '<div class="jw-title-primary jw-reset-text"></div>';
+        }
+    } </script>
+<script type="text/javascript">
+var modifiedTitle = titleParam + " | Star+";
 playerInstance.setup({
 
     playlist: [{
-    "title": "Star+ BR",
-    "description": "Manera gratuita",
+    "title": modifiedTitle,
+    "description": "Mirar Star+ de manera gratuita",
     "image": getIMG,
       "sources": [
         {
@@ -72,7 +74,8 @@ playerInstance.setup({
     autostart: false,
     cast: {},
     sharing: {}
-});    </script>
+});   
+</script>
 
 </body>
 </html>
