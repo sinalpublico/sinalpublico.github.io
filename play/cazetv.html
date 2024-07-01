@@ -96,35 +96,23 @@ document.addEventListener('keydown', function(event) {
 
 
         </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="referrer" content="no-referrer">
+<html>
+  <body bgcolor=black>
+    <center>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    video {
+        height: 100vh;
+        width: 100%;
+        object-fit: contain; // use "cover" to avoid distortion
+        position: absolute;
+    }
+</style>
 
-        #player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
-            border: 0;
-            overflow: hidden;
-        }
-    </style>
-</head>
+      <video id="video" autoplay controls src="https://brflu.walk-tv.com/5756/tracks-v1a1/mono.m3u8" type="application/x-mpegURL" ></video>
+    </center>
 
-<body>
-    <video id="player" controls></video>
-
-    <script>
-        const videoUrl = "https://live-as-04-25.video.globo.com/j/eyJhbGciOiJSUzUxMiIsImtpZCI6IjEiLCJ0eXAiOiJKV1QifQ.eyJjb3VudHJ5X2NvZGUiOiJCUiIsImRvbWFpbiI6ImxpdmUtYXMtMDQtMjUudmlkZW8uZ2xvYm8uY29tIiwiZXhwIjoxNzE5OTU0MjQwLCJpYXQiOjE3MTk4Njc4NDAsImlzcyI6InBsYXliYWNrLWFwaS1wcm9kLWdjcCIsIm93bmVyIjoiMGQzZTAyYjMtYzAwYi00NjEwLWJhZGQtZTIwYTI0NDViY2I3IiwicGF0aCI6Ii9udS9mKGJNaW49MjAwMCkvc3BvMjI0aGEvcGxheWxpc3QubTN1OCJ9.Ey9e9p5gvGCgxWWJPWwxkrpPAHMEFDK_tD07F_ckRufDb5VF5Nh281XtUeExBye8I6hbj7FkuPNqModkIR1jU2BGmlI7APFXEHpiftKiMWbFZS7gzHFb5p954BZtb8-bApGf2CFj9yuspA7gCfmam4D1VyPhXfHHhumS25-xglf2m0tatMpQpqZeV9v50LJKPKnCxBZ1utoXeVejR2HOfE8CGyCHcMUYo-j7g6JAovjshQWDbXxSQPbnq1qdaWeCMC0daJf0vh6V15WO7_40LjzRrTePfVvgHSX9FT8RFO2WDVm4ep6Ql66nz98AEvdBoaG57wYffQ-Uu0n0ArWKeQ/nu/f(bMin=2000)/spo224ha/playlist.m3u8";
-        
+ </body>
     </script>
 </body>
 
