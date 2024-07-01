@@ -1,7 +1,8 @@
-<html><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
+<!DOCTYPE html>
+<head><html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
 <script>
 if (window.top == window.self) {
-	window.location.href = "https://google.com";
+	window.location.href = "https://sinalpublico.github.io/";
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -47,37 +48,68 @@ function devtoolIsOpening() {
     debugger;
     let after = new Date().getTime();
     if (after - before > 200) {
-        document.write(" DESABILITADO. ");
-        window.location.replace("https://www.google.com");
+        document.write(" OFF-LINE. ");
+        window.location.replace("https://sinalpublico.github.io/");
     }
     setTimeout(devtoolIsOpening, 100);
 }
 devtoolIsOpening();
 </script>
-  
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER</title>
+
+    <meta name="referrer" content="none">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
+    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>
+
     <style>
-        body, html {
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
         }
-        
-        iframe {
-            display: block;
+
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 100%;
             width: 100%;
-            height: 100vh;
-            border: none;
+            border: 0;
+            overflow: hidden;
         }
     </style>
-  </head>
 
-  <body>
-    <iframe src="https://sinalpublico.github.io/play/altv.html?get=aHR0cHM6Ly9teWNkbi5kZWxpdmVyeS90ZWxlY2luZXByZW1pdW0vaW5kZXgubXBkP3Rva2VuPTY5Y2QyZmM0MThmMTU3OTI4ZTdkOTk2YzEyN2Y2YzA0NzMzYWEzOGQtYThlYTViMDY2ODJmNTQxZjQ0OTkyMGYyZGNlNDIwMWUtMTcxNzI5NzEzMy0xNzE3Mjk2OTUz" allow="encrypted-media" allowfullscreen="" frameborder="0" width="100%" height="100%"></iframe>
+<div id="player"></div>
+<script>
+var playerInstance=jwplayer("player");
+playerInstance.setup({
+
+    playlist: [{
+			"sources": [
+				{
+					"default": true,
+					"type": "mpd",
+					"file": "https://cdnapisec.kaltura.com/p/2267831/sp/2267831/playManifest/entryId/1_b0cwawva/deliveryProfileId/22993/protocol/https/format/mpegdash/manifest.mpd",
+					"drm": {
+						"widevine": {
+							"url": "https://udrmv3.kaltura.com/cenc/widevine/license?custom_data=eyJjYV9zeXN0ZW0iOiJPVlAiLCJ1c2VyX3Rva2VuIjoiZGpKOE1qSTJOemd6TVh4M2UteEd5bVU0SHZJQVNOakpoZ1ZsVm9Ta0g5Q1Z4TnpFTlpQeGRqZlg4aDB2OXdjaFRvX1QySDdqdjZZWWhlNGMwWEFORVdSbGdvaVNrNXU3Q1dmXzc4endqMFpZWXZ0SnNSUHpFSi0talE9PSIsImFjY291bnRfaWQiOjIyNjc4MzEsImNvbnRlbnRfaWQiOiIxX2IwY3dhd3ZhIiwiZmlsZXMiOiIifQ%3D%3D&signature=X0w%2FiqbTFjwNLkL8OtRU2ysrLaA%3D"
+						},
+						"playready": {}
+					},
+					"label": "1"
+				}
+			]
+		}
+	],
+    logo: { file: "",  },
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: true,
+    mute: false,
+    cast: {},
+});
+    </script>
+
 </body>
 </html>
