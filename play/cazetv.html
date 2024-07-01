@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Live Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript"></script>
+
+    <style type="text/css" media="screen" charset="utf-8">
+      #live-player {
+        position: fixed !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+      }
+      .dvr-player-wrapper {
+        background-color: black;
+      }
+    </style>
+  <link href="/flu/player/main.b144fd41d286a094cb29.css" rel="stylesheet"><script type="text/javascript" src="/flu/player/core-js.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/sentry.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/panzoom.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/clappr.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/flussonic.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/shaka-player.b144fd41d286a094cb29.js"></script><script type="text/javascript" src="/flu/player/main.b144fd41d286a094cb29.js"></script></head>
+  <body>
+    <div id="live-player"></div>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        var options = {
+          parentId: '#live-player',
+          width: '100%',
+          height: '100%',
+        }
+        var config = {"streamName":"cazetv2-0","hasPreview":false,"authTokenName":"token","thumbnails_enabled":false,"type":"live","dvr_info":null,"protocols":{"hls":true,"webrtc":true}};
+        var params = LivePlayer.parseUrl(window.location.href, options, {"streamName":"cazetv2-0","hasPreview":false,"authTokenName":"token","thumbnails_enabled":false,"type":"live","dvr_info":null,"protocols":{"hls":true,"webrtc":true}});
+        window.LivePlayer = new LivePlayer(params);
+        document.getElementsByTagName('title')[0].innerHTML = config.streamName;
+      }
+    </script>
+  </body>
+</html>
