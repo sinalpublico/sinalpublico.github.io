@@ -1,100 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>´
-<script type="text/javascript">
-// Desabilitar botão direito do mouse
-document.addEventListener('contextmenu', function(event) {
-  event.preventDefault();
-  window.location.href = 'https://www.google.com';
-});
-
-// Desabilitar teclas específicas
-document.addEventListener('keydown', function(event) {
-  // Lista de teclas proibidas (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C, etc.)
-  const prohibitedKeys = ['F12', 'I', 'J', 'C', 'U', 'S'];
-  const isCtrlKey = event.ctrlKey || event.metaKey;
-  const isShiftKey = event.shiftKey;
-  
-  if (prohibitedKeys.includes(event.key) || (isCtrlKey && prohibitedKeys.includes(event.key))) {
-    event.preventDefault();
-    window.location.href = 'https://www.google.com';
-  }
-
-  // Prevenir Ctrl+Shift+I (abre ferramentas de desenvolvedor)
-  if (isCtrlKey && isShiftKey && event.key === 'I') {
-    event.preventDefault();
-    window.location.href = 'https://www.google.com';
-  }
-});
-
-// Desabilitar função de inspeção
-document.addEventListener('click', function(event) {
-  if (event.button === 2) {
-    window.location.href = 'https://www.google.com';
-  }
-});
-
-        // JavaScript para desabilitar o clique com o botão direito
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
-        // JavaScript para desabilitar algumas teclas conhecidas para inspeção
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || // F12
-                (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || // Ctrl + Shift + I, Ctrl + Shift + C, Ctrl + Shift + J
-                (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl + U
-                return false;
-            }
-        };
-
-        // Tentativa de desabilitar a abertura da DevTools (isso não funcionará em todos os navegadores)
-        var checkStatus;
-        var element = new Image();
-        element._defineGetter_('id', function() {
-            checkStatus = 'on';
-        });
-        setInterval(function() {
-            checkStatus = 'off';
-            console.log(element);
-            if (checkStatus === 'on') {
-                alert('Não inspecione!');
-            }
-        }, 1000);
-    
-    
-    document.addEventListener('contextmenu', function(event) { event.preventDefault(); });
-document.addEventListener('keydown', function(event) {
-  if ((event.ctrlKey && event.key === 'U') || 
-      (event.ctrlKey && event.key === 'F') || 
-      (event.ctrlKey && event.shiftKey && event.key === 'I') || 
-      event.key === 'F12') {
-    event.preventDefault();
-  }
-});
-
-document.addEventListener('keydown', function(event) {
-  if ((event.ctrlKey && event.shiftKey && event.key === 'I') || event.key === 'F12') {
-    window.location.href = 'https://accounts.google.com/InteractiveLogin/signinchooser?continue=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dhonda%26sca_esv%3De8f1cfb632bd06ad%26ei%3D0Pw2ZprpHbnW1sQPwNCViAI%26udm%3D%26gs_ssp%3DeJzj4tDP1Tcwzi4yUGA0YHRg8GLNyM9LSQQANqsFOQ%26oq%3Dh%26gs_lp%3DEgxnd3Mtd2l6LXNlcnAiAWgqAggGMgsQABiABBixAxiDATIFEAAYgAQyDhAuGIAEGLEDGNEDGMcBMg4QLhiABBixAxjRAxjHATILEC4YgAQYxwEYrwEyCBAAGIAEGLEDMg4QLhiABBixAxjRAxjHATIIEAAYgAQYsQMyERAuGIAEGLEDGNEDGIMBGMcBMgsQABiABBixAxiDATIdEC4YgAQYsQMY0QMYxwEYlwUY3AQY3gQY4ATYAQNIs0NQ8QhYgRBwBHgBkAEAmAG8AaABvAGqAQMwLjG4AQHIAQD4AQGYAgigAoB1qAIKwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAhMQABiABBhDGLQCGIoFGOoC2AEBwgIWEAAYAxi0AhjlAhjqAhiMAxiPAdgBAsICFhAuGAMYtAIY5QIY6gIYjAMYjwHYAQLCAiAQLhiABBixAxjRAxiDARjHARiXBRjcBBjeBBjgBNgBA5gDA4gGAZAGCroGBAgBGAe6BgQIAhgKugYGCAMQARgUkgcHNC4xLjktM6AH_A4%26sclient%3Dgws-wiz-serp&ec=GAZAAQ&hl=pt-BR&passive=true&ifkv=AaSxoQyY8isMPnyg8z4Dywq_tJD192w7wt8bWY4k3VAdppk5aPj-cSYRlfEhFxBxg3XGwVSieAemhA&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin';
-  }
-});
-
-document.addEventListener('keydown', function(event) {
-  if (
-    event.ctrlKey &&
-    (event.key === 'Shift' || event.key === 'I' || event.key === 'J' || event.key === 'C')
-  ) {
-    event.preventDefault();
-  }
-
-  if (event.key === 'F12') {
-    event.preventDefault();
-  }
-});
-
-
-        </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="no-referrer">
@@ -120,7 +25,6 @@ document.addEventListener('keydown', function(event) {
 
 <body>
     <video id="player" controls src="https://ythls.armelin.one/channel/UCZiYbVptd3PVPf4f6eR6UaQ.m3u8" type="application/x-mpegURL" ></video>
-    </center>
-</body>
 
+</body>
 </html>
