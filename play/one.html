@@ -1,7 +1,12 @@
-<html><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
-<script>
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER</title>
+	<script>
 if (window.top == window.self) {
-	window.location.href = "https://google.com";
+	window.location.href = "https://sinalpublico.github.io/";
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -47,20 +52,13 @@ function devtoolIsOpening() {
     debugger;
     let after = new Date().getTime();
     if (after - before > 200) {
-        document.write(" DESABILITADO. ");
-        window.location.replace("https://www.google.com");
+        document.write(" OFF-LINE. ");
+        window.location.replace("https://sinalpublico.github.io/");
     }
     setTimeout(devtoolIsOpening, 100);
 }
 devtoolIsOpening();
 </script>
-  
-<!DOCTYPE html>
-<html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER</title>
     <style>
         body, html {
             height: 100%;
