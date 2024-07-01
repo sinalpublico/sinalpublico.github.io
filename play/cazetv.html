@@ -1,31 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="referrer" content="no-referrer">
-
+<html>
+  <body bgcolor=black>
     <center>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
 
-        #player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
-            border: 0;
-            overflow: hidden;
-        }
-    </style>
-	
-</head>
-<body>
-    <video id="player" controls src="https://ythls.armelin.one/channel/UCZiYbVptd3PVPf4f6eR6UaQ.m3u8" type="application/x-mpegURL" ></video>
+<style>
+    video {
+        height: 100vh;
+        width: 100%;
+        object-fit: contain; // use "cover" to avoid distortion
+        position: absolute;
+    }
+</style>
 
-</body>
+      <video id="video" autoplay controls src="https://ythls.armelin.one/channel/UCZiYbVptd3PVPf4f6eR6UaQ.m3u8" type="application/x-mpegURL" ></video>
+    </center>
+
+
+
+<span id="meuspan"></span>
+ </body>
+
+<script>
+function showpage() {
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("meuspan").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "infopageandroidajaxsimple.php?t="+(Math.random()), true);
+  xhttp.send();
+ setTimeout(showpage,60000); 
+}
+ showpage();
+</script>
 </html>
+
