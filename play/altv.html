@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html lang="pt_BR"><head><script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script>
 <script>
 if (window.top == window.self) {
-	window.location.href = "https://sinalpublico.github.io/";
+	window.location.href = "https://google.com";
 }
 
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -47,18 +48,14 @@ function devtoolIsOpening() {
     debugger;
     let after = new Date().getTime();
     if (after - before > 200) {
-        document.write(" Dont open Developer Tools. ");
-        window.location.replace("https://sinalpublico.github.io/");
+        document.write("offline");
+        window.location.replace("https://www.google.com");
     }
     setTimeout(devtoolIsOpening, 100);
 }
 devtoolIsOpening();
 </script>
 
-<!--PLAYER-->
-<!DOCTYPE html>
-<html lang="pt-BR">
-   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Play</title>
