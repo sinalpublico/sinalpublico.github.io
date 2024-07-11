@@ -21,21 +21,22 @@
     </style>
 </head>
 <body>
-    <script>
-        window.onload = function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var iframeSrc = urlParams.get("id");
+<script>
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var iframeSrc = urlParams.get("id");
 
-            if (iframeSrc) {
-                var iframe = document.createElement("iframe");
-                iframe.src = iframeSrc;
-                iframe.allowFullscreen = true;
-                iframe.sandbox = "allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation";
+        if (iframeSrc) {
+            var iframe = document.createElement("iframe");
+            iframe.src = iframeSrc;
+            iframe.allowFullscreen = true;
+            iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
 
-                document.body.appendChild(iframe);
-            }
-        };
-    </script>
+            document.body.appendChild(iframe);
+        }
+    };
+</script>
+
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script> 
