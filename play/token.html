@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
 <head>
- <title>Gerar Token</title>
+ <title>GERANDO - TOKEN - GOOGLE</title>
     <style>
         body, html {
             font-family: 'Arial', sans-serif;
@@ -14,7 +14,7 @@
 if (window.top == window.self) {
 	window.location.href = "https://www.google.com.br/";
 }
-
+	    
 document.addEventListener('contextmenu', event => event.preventDefault());
 document.onkeydown = function(e) {
         if (e.ctrlKey && 
@@ -69,7 +69,6 @@ devtoolIsOpening();
 </head>
 <body>
 <div id="player"></div>
-
 </div>
     <style>
         body, html {
@@ -85,7 +84,6 @@ devtoolIsOpening();
             border: none;
         }
     </style>
-
     <meta name="referrer" content="none">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/css/player-v3.1.min.css"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
@@ -93,26 +91,23 @@ devtoolIsOpening();
     <script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwpsrv.js"></script>
     <script src="//fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"></script>
     <script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-    <script>
-        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
-    </script>
+    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo'; </script>
 
 <body>
-
 <script>
     window.onload = function() {
         var urlParams = new URLSearchParams(window.location.search);
         var encodedSrc = urlParams.get("id");
 
         if (encodedSrc) {
-            var iframeSrc = atob(encodedSrc); // 
+            var iframeSrc = atob(encodedSrc);
 
             var iframe = document.createElement("iframe");
             iframe.src = iframeSrc;
             iframe.frameBorder = "0";
             iframe.allowFullscreen = true;
 
-            iframe.allow = "autoplay; encrypted-media; picture-in-picture"; // 
+            iframe.allow = "autoplay; encrypted-media; picture-in-picture"; 
 
             var iframeContainer = document.createElement("div");
             iframeContainer.className = "GerarToken";
