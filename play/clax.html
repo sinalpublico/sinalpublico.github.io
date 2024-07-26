@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1' name='viewport'>
+    <meta http-equiv="Content-Language" content="pt-br" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>SinalPublico</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        #player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        #player iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool@latest"></script> 
+    <script type="text/javascript" src="https://sinalpublico.github.io/clear/assets/js/front.scripts.min.js"></script>
+    <script type="text/javascript" src="https://sinalpublico.github.io/clear/assets/js/front.livesearch.min.js"></script>
+    <script src="https://sinalpublico.github.io/lib/burn.min.js"></script>
+    <script>
+        function isMobile() {
+            return /android|bb\d+|meego|mobile|avantgo|bada|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|iphone|ipad|ipod|iris|kindle|lge |maemo|midp|mmp|mobile|opera mini|palm|phone|pocket|psp|series|symbian|treo|up\.browser|vodafone|wap|windows ce|xda|xiino/i.test(navigator.userAgent);
+        }
+
+        if (!isMobile()) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const id = ''; // Defina a variável 'id' com o valor apropriado
+                if (id === "axn2") {
+                    document.getElementById("player").innerHTML = '<iframe src="https://sinalpublico.github.io/play/token.html?id=aHR0cHM6Ly9jMmx1eXd4d2R3anNhd252LmdpdGh1Yi5pby8lRDAlQkUlRDAlQjElRDElODklRDAlQjUlRDElODElRDElODIlRDAlQjIlRDAlQjUlRDAlQkQlRDAlQjclRDAlQkQlRDAlQjAlRDAlQkEvby5odG1sP2lkPQ0KYUhSMGNITTZMeTlrTVhJNU5IcHlkMkV6WjI1c2J5NWpiRzkxWkdaeWIyNTBMbTVsZEM5c2FYWmxjM1J2Y21VeE1ESXZjM1J5WldGdEwyaHNjeTh5Tnpndk1qYzRMbTB6ZFRnPQ==" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0"></iframe>';
+                } else if (id === "premierec2") {
+                    document.getElementById("player").innerHTML = '<iframe src="https://sinalpublico.github.io/play/token.html?id=aHR0cHM6Ly9jMmx1eXd4d2R3anNhd252LmdpdGh1Yi5pby8lRDAlQkUlRDAlQjElRDElODklRDAlQjUlRDElODElRDElODIlRDAlQjIlRDAlQjUlRDAlQkQlRDAlQjclRDAlQkQlRDAlQjAlRDAlQkEvcGZjMS5odG1s" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0"></iframe>';
+                } else if (id === "espn2") {
+                    document.getElementById("player").innerHTML = '<iframe src="https://meuplayeronlinehd.com/myplay/master.html?id=es2" width="100%" height="100%" scrolling="no" allow="encrypted-media" allowfullscreen="true" frameborder="0"></iframe>';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="player"></div>
+</body>
+</html>
