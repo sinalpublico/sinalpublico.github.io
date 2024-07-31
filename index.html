@@ -341,10 +341,28 @@ RECOMENDADO
 </div>
 </div>
 <!-- GRUPO -->
- <div class="colored-box-content">
-	<div class="paragraph" style="text-align:center;"><span><font size="5">⬇️</font></span><strong><font color="#070b97" size="5">GRUPO TELEGRAM</font></strong><span><font size="5">⬇️</font></span></div>
-        <div  class="paragraph" style="text-align:center;"><strong><font size="5"><input type="text" value="https://t.me/sinalpublico" style="display: block; margin: 0 auto; text-align: center; width: 35%;" onclick="this.select(); document.execCommand('copy'); alert('O LINK FOI COPIADO');"></font></strong></div>
-            <div style="height:20px;overflow:hidden"></div>
+
+<div class="colored-box-content">
+    <div class="paragraph" style="text-align:center;">
+        <span><font size="5">⬇️</font></span>
+        <strong><font color="#070b97" size="5">TELEGRAM</font></strong>
+        <span><font size="5">⬇️</font></span>
+    </div>
+    <div class="paragraph" style="text-align:center;">
+        <strong>
+            <font size="5">
+                <input 
+                    type="text" 
+                    value="https://t.me/sinalpublico" 
+                    style="display: block; margin: 0 auto; text-align: center; width: 35%; border-radius: 15px; border: 1px solid #ccc; padding: 10px;" 
+                    onclick="this.select(); document.execCommand('copy'); alert('O LINK DO GRUPO FOI COPIADO');"
+                >
+            </font>
+        </strong>
+    </div>
+    <div style="height:20px;overflow:hidden"></div>
+</div>
+
     <!-- Seção de pesquisa -->
     <section class="search-section">
         <form id="searchForm" onsubmit="return searchImages()">
@@ -633,65 +651,6 @@ RECOMENDADO
 
 <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=650bce971ce1b90012e5d869&product=sop' async='async'></script>  
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-<style>
-.button-container {
-  display: flex;
-  align-items: center;
-}
-
-.md-link {
-  margin-right: 8px;
-}
- p.des {
-    margin-bottom: 5px;
-    text-align: center;
-    line-height: 23px;
-  color: #fff;
-  
- }
-
-</style>
-
-</section>
-
- <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-</div>
-</main>
-
-</div>
-</footer>
-<script>$(document).ready(function() {
-    $('#buscar').on('input', function() {
-        var value = $(this).val().toLowerCase();
-        $('.channels > div').each(function() {
-            var imageAlt = $(this).find('img').attr('alt').toLowerCase();
-            var cardVisible = imageAlt.indexOf(value) > -1;
-
-        
-            if (cardVisible) {
-                $(this).removeClass('d-none'); 
-            } else {
-                $(this).addClass('d-none'); 
-            }
-        });
-    });
-});
-
-</script>
-<script> $(".carousel").owlCarousel({
-  margin: 20,
-  loop: true,
-  autoplay: true,
-  autoplayTimeout: 4500,
-  autoplayHoverPause: true,
-  responsive: {
-      0: { items: 1, nav: false },
-      600: { items: 2, nav: false },
-      1000: { items: 3, nav: false },
-  },
-});
- </script>
 
 </body>
 </html>
