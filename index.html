@@ -75,6 +75,48 @@
             text-align: center;
             margin-top: 10px;
         }
+	.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.md-link {
+  margin-right: 8px;
+}
+ p.des {
+    margin-bottom: 5px;
+    text-align: center;
+    line-height: 23px;
+  color: #fff;
+  
+ }
+
+ /* firefox */
+
+scrollbar-width: thin; 
+scrollbar-color: #00000 #eef8fc ; 
+
+</style> <style media="screen">
+
+.owl-dots{
+text-align: center;
+margin-top: 25px;
+}
+.owl-dot{
+height: 15px;
+width: 30px;
+margin: 0 5px;
+outline: none;
+border-radius: 14px;
+border: 2px solid #35afe3!important;
+box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+transition: all 0.3s ease;
+}
+.owl-dot.active,
+.owl-dot:hover{
+background: #35afe3!important;
+}
+
 /*!************************************************
 *  
 *       : 
@@ -598,6 +640,46 @@ RECOMENDADO
           <div class="widget-content">
             <a href="https://gratis.pixbet.com/_/KQ9S2P" target="_top"><img border="5" data-original-height="18" data-original-width="150" src="/imgs/palpitegratis.png" alt="PALPITE GRATIS"></a></div></div></div>
 
+	</section>
+
+ <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+</div>
+</main>
+
+</div>
+</footer>
+<script>$(document).ready(function() {
+    $('#buscar').on('input', function() {
+        var value = $(this).val().toLowerCase();
+        $('.channels > div').each(function() {
+            var imageAlt = $(this).find('img').attr('alt').toLowerCase();
+            var cardVisible = imageAlt.indexOf(value) > -1;
+
+        
+            if (cardVisible) {
+                $(this).removeClass('d-none'); 
+            } else {
+                $(this).addClass('d-none'); 
+            }
+        });
+    });
+});
+
+</script>
+<script> $(".carousel").owlCarousel({
+  margin: 20,
+  loop: true,
+  autoplay: true,
+  autoplayTimeout: 4500,
+  autoplayHoverPause: true,
+  responsive: {
+      0: { items: 1, nav: false },
+      600: { items: 2, nav: false },
+      1000: { items: 3, nav: false },
+  },
+});
+ </script>
+	
     <script>
 
         function openModal(imageUrl) {
