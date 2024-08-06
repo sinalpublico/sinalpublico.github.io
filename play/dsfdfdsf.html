@@ -16,18 +16,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/reidoscanais/rdc@main/assets/css/player-v3.1.min.css">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.4.6/plyr.css">
     <script src="https://cdn.jsdelivr.net/gh/sinalpublico/ply@main/assets/jwplayer/jwplayer.latest.js"></script>
-    <script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
     <script>
-</head>
-<body>
-    <header></header>
-    <center>
-        <div id="demoplayer"></div>
-    </center>
-    <script>
-        jwplayer.key = "uoW6qHjBL3KNudxKVnwa3rt5LlTakbko9e6aQ6VUyKQ=";
+        jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+        
+        var engine = new p2pml.hlsjs.Engine();
 
-        jwplayer('demoplayer').setup({
+        const player = jwplayer('player').setup({
             playlist: [
                 {
                     sources: [
@@ -68,14 +62,15 @@
                 }
             }
         });
-
-        jwplayer('demoplayer').on('play', function () {
-            jwplayer('demoplayer').hls.p2pEngine.on('stats', function ({totalHTTPDownloaded, totalP2PDownloaded}) {
-                // Get totalHTTPDownloaded and totalP2PDownloaded here
-                console.log('Total HTTP Downloaded:', totalHTTPDownloaded);
-                console.log('Total P2P Downloaded:', totalP2PDownloaded);
-            });
+        jwplayer_hls_provider.attach();
+        p2pml.hlsjs.initJwPlayer(player, {
+            liveSyncDurationCount: 7,
+            loader: engine.createLoaderClass()
         });
     </script>
+</head>
+<body>
+    <!-- Add your player container here -->
+    <div id="player"></div>
 </body>
 </html>
