@@ -90,15 +90,10 @@
             font-size: 1em;
             color: #555;
         }
-        .channel-content a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .channel-content a:hover {
-            color: #357a38;
-            text-decoration: underline;
+        .channel-content p.category {
+            margin: 0;
+            font-size: 1em;
+            color: #777;
         }
         @media (max-width: 768px) {
             .filters {
@@ -129,7 +124,7 @@
 
     <script>
         // URL da API
-        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=';
+        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=https://listchannels.weebly.com/wererdsfsdfwer2.html';
 
         // Função para buscar e processar o conteúdo
         async function fetchAndProcessContent() {
@@ -173,7 +168,7 @@
                                 <img src="${currentItem.logo}" alt="${currentItem.name} Logo">
                                 <div class="channel-content">
                                     <h2>${currentItem.name}</h2>
-                                    <p><strong>Categoria:</strong> ${currentItem.groupTitle}</p>
+                                    <p class="category">${currentItem.groupTitle}</p>
                                 </div>
                             `;
                             container.appendChild(channelElement);
@@ -188,7 +183,7 @@
                 document.getElementById('category-filter').addEventListener('change', function() {
                     const selectedCategory = this.value.toLowerCase();
                     document.querySelectorAll('.channel').forEach(channel => {
-                        const category = channel.querySelector('.channel-content p').textContent.toLowerCase();
+                        const category = channel.querySelector('.channel-content p.category').textContent.toLowerCase();
                         if (selectedCategory === '' || category.includes(selectedCategory)) {
                             channel.style.display = '';
                         } else {
