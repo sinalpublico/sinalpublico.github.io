@@ -3,177 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Filmes</title>
+    <title>Lista de Filmes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #eaeaea;
+            background-color: #f4f4f9;
             color: #333;
         }
-
         header {
-            background-color: #222;
+            background-color: #4CAF50;
             color: #fff;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
         header h1 {
             margin: 0;
             font-size: 2em;
         }
-
-        main {
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
             padding: 20px;
-        }
-
-        .movie-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .movie-card {
             background-color: #fff;
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .filters {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .filters label {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .filters select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            background-color: #fff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .filters select:focus {
+            border-color: #4CAF50;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .channel {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
             cursor: pointer;
+            text-decoration: none; /* Remove underline on click */
         }
-
-        .movie-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        .channel:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-
-        .movie-card img {
+        .channel img {
             width: 100%;
-            height: 140px;
+            height: 160px;
             object-fit: cover;
         }
-
-        .movie-card .info {
+        .channel-content {
             padding: 15px;
         }
-
-        .movie-card h2 {
+        .channel-content h2 {
             margin: 0;
-            font-size: 1.1em;
-        }
-
-        .movie-card p {
-            margin: 5px 0;
-            color: #666;
-        }
-
-        .movie-card a {
-            color: #007bff;
-            text-decoration: none;
+            font-size: 1.4em;
+            color: #4CAF50;
             font-weight: bold;
         }
-
-        .movie-card a:hover {
+        .channel-content p {
+            margin: 8px 0;
+            font-size: 1em;
+            color: #555;
+        }
+        .channel-content a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .channel-content a:hover {
+            color: #357a38;
             text-decoration: underline;
         }
-
-        footer {
-            background-color: #222;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
+        @media (max-width: 768px) {
+            .filters {
+                align-items: flex-start;
+            }
+            .filters select {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Catálogo de Filmes</h1>
+        <h1>Lista de Filmes</h1>
     </header>
-    <main>
-        <section id="movies" class="movie-list">
-            <!-- Os cartões dos filmes serão inseridos aqui pelo JavaScript -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Catálogo de Filmes. Todos os direitos reservados.</p>
-    </footer>
+    <div class="container">
+        <div class="filters">
+            <label for="category-filter">Filtrar por Categoria:</label>
+            <select id="category-filter">
+                <option value="">Todas</option>
+                <option value="Filmes">Filmes</option>
+                <option value="Comedia">Comédia</option>
+                <!-- Adicione outras categorias conforme necessário -->
+            </select>
+        </div>
+        <div id="channels" class="grid"></div>
+    </div>
 
     <script>
-        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=https://pastebin.com/raw/4uW9jHpx';
+        // URL da API
+        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=';
 
-        async function fetchData() {
+        // Função para buscar e processar o conteúdo
+        async function fetchAndProcessContent() {
             try {
                 const response = await fetch(apiUrl);
                 if (!response.ok) {
-                    throw new Error('Erro na resposta da API');
+                    throw new Error('Network response was not ok');
                 }
-                const data = await response.text(); // Obtém o texto bruto
-                const lines = data.split('\n').filter(line => line.trim() !== ''); // Divide em linhas e remove linhas vazias
+                const text = await response.text();
 
-                const moviesContainer = document.getElementById('movies');
+                // Divide o texto em linhas
+                const lines = text.split('\n');
 
-                let currentMovie = null;
+                // Limpa o conteúdo anterior
+                const container = document.getElementById('channels');
+                container.innerHTML = '';
 
+                let currentItem = null;
+
+                // Processa cada linha
                 lines.forEach(line => {
-                    // Verifica se a linha é uma descrição de filme
-                    const match = line.match(/#EXTINF:-1\s+tvg-id="([^"]+)"\s+tvg-name="([^"]+)"\s+tvg-logo="([^"]+)"\s+group-title="([^"]+)"/);
+                    // Verifica se a linha é um item de metadados
+                    if (line.startsWith('#EXTINF')) {
+                        const metaInfo = line.match(/tvg-name="([^"]*)".*tvg-logo="([^"]*)".*group-title="([^"]*)"/);
+                        if (metaInfo) {
+                            currentItem = {
+                                name: metaInfo[1],
+                                logo: metaInfo[2],
+                                groupTitle: metaInfo[3],
+                                url: line
+                            };
+                        }
+                    } else if (line.startsWith('http')) {
+                        // Verifica se temos um URL e um item de metadados para associar
+                        if (currentItem) {
+                            const channelElement = document.createElement('a');
+                            channelElement.className = 'channel';
+                            channelElement.href = line; // Define o link para o URL
+                            channelElement.target = '_blank'; // Abre em nova aba
+                            channelElement.innerHTML = `
+                                <img src="${currentItem.logo}" alt="${currentItem.name} Logo">
+                                <div class="channel-content">
+                                    <h2>${currentItem.name}</h2>
+                                    <p><strong>Categoria:</strong> ${currentItem.groupTitle}</p>
+                                </div>
+                            `;
+                            container.appendChild(channelElement);
 
-                    if (match) {
-                        const [_, id, name, logoUrl, group] = match;
-                        currentMovie = { name, logoUrl, group, url: null }; // Cria um objeto para o filme
-                    } else if (line.startsWith('http') || line.startsWith('https')) {
-                        // Se a linha começa com 'http' ou 'https', é o URL do stream
-                        if (currentMovie) {
-                            currentMovie.url = line;
-                            displayMovie(currentMovie);
-                            currentMovie = null; // Reseta o filme atual
+                            // Limpa o item atual para o próximo
+                            currentItem = null;
                         }
                     }
                 });
+                
+                // Adiciona filtro por categoria
+                document.getElementById('category-filter').addEventListener('change', function() {
+                    const selectedCategory = this.value.toLowerCase();
+                    document.querySelectorAll('.channel').forEach(channel => {
+                        const category = channel.querySelector('.channel-content p').textContent.toLowerCase();
+                        if (selectedCategory === '' || category.includes(selectedCategory)) {
+                            channel.style.display = '';
+                        } else {
+                            channel.style.display = 'none';
+                        }
+                    });
+                });
             } catch (error) {
-                document.getElementById('movies').textContent = `Erro: ${error.message}`;
+                document.getElementById('channels').innerHTML = 'Erro ao carregar o conteúdo: ' + error.message;
             }
         }
 
-        function displayMovie(movie) {
-            const moviesContainer = document.getElementById('movies');
-
-            const movieCard = document.createElement('div');
-            movieCard.classList.add('movie-card');
-
-            const imgElement = document.createElement('img');
-            imgElement.src = movie.logoUrl;
-            imgElement.alt = movie.name;
-
-            const infoDiv = document.createElement('div');
-            infoDiv.classList.add('info');
-
-            const nameElement = document.createElement('h2');
-            nameElement.textContent = movie.name;
-
-            const groupElement = document.createElement('p');
-            groupElement.textContent = `Grupo: ${movie.group}`;
-
-            const urlElement = document.createElement('a');
-            urlElement.href = movie.url;
-            urlElement.textContent = 'Assistir ao vivo';
-            urlElement.target = '_blank'; // Abre o link em uma nova aba
-
-            infoDiv.appendChild(nameElement);
-            infoDiv.appendChild(groupElement);
-            infoDiv.appendChild(urlElement);
-
-            movieCard.appendChild(imgElement);
-            movieCard.appendChild(infoDiv);
-
-            moviesContainer.appendChild(movieCard);
-        }
-
-        fetchData();
+        // Chama a função para buscar e processar o conteúdo
+        fetchAndProcessContent();
     </script>
 </body>
 </html>
