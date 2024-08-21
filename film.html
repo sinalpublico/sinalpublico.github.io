@@ -41,7 +41,8 @@
             font-size: 1.1em;
             margin-bottom: 10px;
         }
-        .filters select {
+        .filters select,
+        .filters input {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 6px;
@@ -49,8 +50,10 @@
             background-color: #fff;
             outline: none;
             transition: border-color 0.3s;
+            margin-bottom: 10px;
         }
-        .filters select:focus {
+        .filters select:focus,
+        .filters input:focus {
             border-color: #4CAF50;
         }
         .grid {
@@ -99,7 +102,8 @@
             .filters {
                 align-items: flex-start;
             }
-            .filters select {
+            .filters select,
+            .filters input {
                 width: 100%;
             }
         }
@@ -107,7 +111,7 @@
 </head>
 <body>
     <header>
-        <h1>Lista de Filmes</h1>
+        <h1>Seus Filmes</h1>
     </header>
     <div class="container">
         <div class="filters">
@@ -118,13 +122,15 @@
                 <option value="Comedia">Comédia</option>
                 <!-- Adicione outras categorias conforme necessário -->
             </select>
+            <label for="search-input">Pesquisar:</label>
+            <input type="text" id="search-input" placeholder="Escreva o nome do filme...">
         </div>
         <div id="channels" class="grid"></div>
     </div>
 
     <script>
         // URL da API
-        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=h';
+        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=';
 
         // Função para buscar e processar o conteúdo
         async function fetchAndProcessContent() {
@@ -160,9 +166,12 @@
                     } else if (line.startsWith('http')) {
                         // Verifica se temos um URL e um item de metadados para associar
                         if (currentItem) {
+                            const encodedUrl = encodeURIComponent(line);
+                            const playerUrl = `http://playm3utype.weebly.com/playerfilmes.html?url=${encodedUrl}&img=${encodeURIComponent(currentItem.logo)}`;
+
                             const channelElement = document.createElement('a');
                             channelElement.className = 'channel';
-                            channelElement.href = line; // Define o link para o URL
+                            channelElement.href = playerUrl; // Define o link para o novo URL
                             channelElement.target = '_blank'; // Abre em nova aba
                             channelElement.innerHTML = `
                                 <img src="${currentItem.logo}" alt="${currentItem.name} Logo">
@@ -178,22 +187,33 @@
                         }
                     }
                 });
-                
+
                 // Adiciona filtro por categoria
-                document.getElementById('category-filter').addEventListener('change', function() {
-                    const selectedCategory = this.value.toLowerCase();
-                    document.querySelectorAll('.channel').forEach(channel => {
-                        const category = channel.querySelector('.channel-content p.category').textContent.toLowerCase();
-                        if (selectedCategory === '' || category.includes(selectedCategory)) {
-                            channel.style.display = '';
-                        } else {
-                            channel.style.display = 'none';
-                        }
-                    });
-                });
+                document.getElementById('category-filter').addEventListener('change', filterChannels);
+                
+                // Adiciona filtro por pesquisa
+                document.getElementById('search-input').addEventListener('input', filterChannels);
             } catch (error) {
                 document.getElementById('channels').innerHTML = 'Erro ao carregar o conteúdo: ' + error.message;
             }
+        }
+
+        // Função para filtrar canais
+        function filterChannels() {
+            const selectedCategory = document.getElementById('category-filter').value.toLowerCase();
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            document.querySelectorAll('.channel').forEach(channel => {
+                const name = channel.querySelector('.channel-content h2').textContent.toLowerCase();
+                const category = channel.querySelector('.channel-content p.category').textContent.toLowerCase();
+
+                if ((selectedCategory === '' || category.includes(selectedCategory)) &&
+                    (searchTerm === '' || name.includes(searchTerm))) {
+                    channel.style.display = '';
+                } else {
+                    channel.style.display = 'none';
+                }
+            });
         }
 
         // Chama a função para buscar e processar o conteúdo
