@@ -100,14 +100,17 @@
         .carousel-wrapper {
             position: relative;
             overflow: hidden;
+            padding: 10px;
         }
         .carousel {
             display: flex;
             overflow-x: auto;
             gap: 10px;
-            padding: 10px;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
+            padding: 0;
+            margin: 0;
+            align-items: flex-start;
         }
         .carousel::-webkit-scrollbar {
             display: none; /* Hide scrollbar for webkit browsers */
@@ -116,28 +119,23 @@
             background-color: #333;
             border-radius: 8px;
             overflow: hidden;
-            width: 200px; /* Ajusta a largura do cartão */
             flex: none;
             scroll-snap-align: start;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            width: 200px; /* Define uma largura fixa para o cartão */
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
         }
         .movie-card img {
             width: 100%;
             height: auto; /* Mantém a proporção da imagem */
-            object-fit: cover; /* Garante que a imagem preencha o cartão */
+            object-fit: cover;
         }
         .movie-info {
             padding: 10px;
             color: #fff;
-            background: rgba(0, 0, 0, 0.5); /* Adiciona um fundo semitransparente para melhorar a legibilidade */
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Adiciona um fundo semitransparente */
         }
         .movie-info h3 {
             margin: 0;
