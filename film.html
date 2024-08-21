@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Filmes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            color: #333;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .movie-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .movie-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 250px;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .movie-card .info {
+            padding: 15px;
+        }
+
+        .movie-card h2 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .movie-card p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .movie-card a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .movie-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Filmes</h1>
+    </header>
+    <main>
+        <section id="movies" class="movie-list">
+            <!-- Os cartões dos filmes serão inseridos aqui pelo JavaScript -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Catálogo de Filmes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const apiUrl = 'https://api.codetabs.com/v1/proxy/?quest=https://pastebin.com/raw/4uW9jHpx';
+
+        async function fetchData() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Erro na resposta da API');
+                }
+                const data = await response.text(); // Obtém o texto bruto
+                const lines = data.split('\n').filter(line => line.trim() !== ''); // Divide em linhas e remove linhas vazias
+
+                const moviesContainer = document.getElementById('movies');
+
+                let currentMovie = null;
+
+                lines.forEach(line => {
+                    // Verifica se a linha é uma descrição de filme
+                    const match = line.match(/#EXTINF:-1\s+tvg-id="([^"]+)"\s+tvg-name="([^"]+)"\s+tvg-logo="([^"]+)"\s+group-title="([^"]+)"/);
+
+                    if (match) {
+                        const [_, id, name, logoUrl, group] = match;
+                        currentMovie = { name, logoUrl, group, url: null }; // Cria um objeto para o filme
+                    } else if (line.startsWith('http') || line.startsWith('https')) {
+                        // Se a linha começa com 'http' ou 'https', é o URL do stream
+                        if (currentMovie) {
+                            currentMovie.url = line;
+                            displayMovie(currentMovie);
+                            currentMovie = null; // Reseta o filme atual
+                        }
+                    }
+                });
+            } catch (error) {
+                document.getElementById('movies').textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        function displayMovie(movie) {
+            const moviesContainer = document.getElementById('movies');
+
+            const movieCard = document.createElement('div');
+            movieCard.classList.add('movie-card');
+
+            const imgElement = document.createElement('img');
+            imgElement.src = movie.logoUrl;
+            imgElement.alt = movie.name;
+
+            const infoDiv = document.createElement('div');
+            infoDiv.classList.add('info');
+
+            const nameElement = document.createElement('h2');
+            nameElement.textContent = movie.name;
+
+            const groupElement = document.createElement('p');
+            groupElement.textContent = `Grupo: ${movie.group}`;
+
+            const urlElement = document.createElement('a');
+            urlElement.href = movie.url;
+            urlElement.textContent = 'Assistir ao vivo';
+            urlElement.target = '_blank'; // Abre o link em uma nova aba
+
+            infoDiv.appendChild(nameElement);
+            infoDiv.appendChild(groupElement);
+            infoDiv.appendChild(urlElement);
+
+            movieCard.appendChild(imgElement);
+            movieCard.appendChild(infoDiv);
+
+            moviesContainer.appendChild(movieCard);
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
