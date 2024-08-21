@@ -63,7 +63,20 @@
             font-size: 1.2em;
             margin: 10px 0;
         }
-        .banner button {
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #e50914;
+            border-radius: 5px;
+            width: 300px;
+            color: #000;
+        }
+        .search-bar button {
             padding: 10px 20px;
             font-size: 1em;
             background-color: #e50914;
@@ -72,8 +85,9 @@
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-left: 10px;
         }
-        .banner button:hover {
+        .search-bar button:hover {
             background-color: #f40612;
         }
         .section {
@@ -102,29 +116,36 @@
             background-color: #333;
             border-radius: 8px;
             overflow: hidden;
-            width: 200px;
+            width: 200px; /* Ajusta a largura do cartão */
             flex: none;
             scroll-snap-align: start;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
         }
         .movie-card img {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        .movie-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+            height: auto; /* Mantém a proporção da imagem */
+            object-fit: cover; /* Garante que a imagem preencha o cartão */
         }
         .movie-info {
             padding: 10px;
             color: #fff;
+            background: rgba(0, 0, 0, 0.5); /* Adiciona um fundo semitransparente para melhorar a legibilidade */
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
         .movie-info h3 {
             margin: 0;
             font-size: 1.1em;
-            color: #fff;
+        }
+        .movie-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
         }
         .carousel-button {
             position: absolute;
@@ -173,6 +194,9 @@
                 width: 150px;
             }
         }
+        .movie-card.hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -189,7 +213,10 @@
     <div class="banner">
         <h1>Descubra o Novo</h1>
         <p>Assista aos melhores filmes e séries no conforto da sua casa.</p>
-        <button>Assista Agora</button>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Pesquisar filmes e séries...">
+            <button id="searchButton">Pesquisar</button>
+        </div>
     </div>
 
     <div id="carousels"></div>
@@ -222,93 +249,120 @@
                 let currentItem = null;
                 const categories = {};
 
-        // Processa cada linha
-        lines.forEach(line => {
-            if (line.startsWith('#EXTINF')) {
-                const metaInfo = line.match(/tvg-name="([^"]*)".*tvg-logo="([^"]*)".*group-title="([^"]*)"/);
-                if (metaInfo) {
-                    currentItem = {
-                        name: metaInfo[1],
-                        logo: metaInfo[2],
-                        groupTitle: metaInfo[3],
-                        url: line
-                    };
-                }
-            } else if (line.startsWith('http')) {
-                if (currentItem) {
-                    const encodedUrl = encodeURIComponent(line);
-                    const playerUrl = `http://playm3utype.weebly.com/playerfilmes.html?url=${encodedUrl}&img=${encodeURIComponent(currentItem.logo)}`;
+                // Processa cada linha
+                lines.forEach(line => {
+                    if (line.startsWith('#EXTINF')) {
+                        const metaInfo = line.match(/tvg-name="([^"]*)".*tvg-logo="([^"]*)".*group-title="([^"]*)"/);
+                        if (metaInfo) {
+                            currentItem = {
+                                name: metaInfo[1],
+                                logo: metaInfo[2],
+                                groupTitle: metaInfo[3],
+                                url: line
+                            };
+                        }
+                    } else if (line.startsWith('http')) {
+                        if (currentItem) {
+                            const encodedUrl = encodeURIComponent(line);
+                            const playerUrl = `http://playm3utype.weebly.com/playerfilmes.html?url=${encodedUrl}&img=${encodeURIComponent(currentItem.logo)}`;
 
-                    if (!categories[currentItem.groupTitle]) {
-                        categories[currentItem.groupTitle] = [];
+                            if (!categories[currentItem.groupTitle]) {
+                                categories[currentItem.groupTitle] = [];
+                            }
+
+                            categories[currentItem.groupTitle].push({
+                                name: currentItem.name,
+                                logo: currentItem.logo,
+                                url: playerUrl
+                            });
+
+                            currentItem = null;
+                        }
                     }
+                });
 
-                    categories[currentItem.groupTitle].push({
-                        name: currentItem.name,
-                        logo: currentItem.logo,
-                        url: playerUrl
+                // Adiciona carrosséis por categoria
+                Object.keys(categories).forEach(category => {
+                    const categorySection = document.createElement('div');
+                    categorySection.className = 'section';
+                    categorySection.innerHTML = `<h2>${category}</h2>`;
+                    
+                    const carouselWrapper = document.createElement('div');
+                    carouselWrapper.className = 'carousel-wrapper';
+
+                    const carousel = document.createElement('div');
+                    carousel.className = 'carousel';
+
+                    categories[category].forEach(item => {
+                        const card = document.createElement('div');
+                        card.className = 'movie-card';
+                        card.innerHTML = `
+                            <a href="${item.url}" target="_blank">
+                                <img src="${item.logo}" alt="${item.name} Logo">
+                                <div class="movie-info">
+                                    <h3>${item.name}</h3>
+                                </div>
+                            </a>
+                        `;
+                        carousel.appendChild(card);
                     });
 
-                    currentItem = null;
-                }
+                    // Adiciona os botões de navegação
+                    const leftButton = document.createElement('button');
+                    leftButton.className = 'carousel-button left';
+                    leftButton.innerText = '<';
+                    leftButton.addEventListener('click', () => {
+                        carousel.scrollBy({ left: -carousel.offsetWidth / 5, behavior: 'smooth' });
+                    });
+
+                    const rightButton = document.createElement('button');
+                    rightButton.className = 'carousel-button right';
+                    rightButton.innerText = '>';
+                    rightButton.addEventListener('click', () => {
+                        carousel.scrollBy({ left: carousel.offsetWidth / 5, behavior: 'smooth' });
+                    });
+
+                    carouselWrapper.appendChild(leftButton);
+                    carouselWrapper.appendChild(carousel);
+                    carouselWrapper.appendChild(rightButton);
+
+                    categorySection.appendChild(carouselWrapper);
+                    carouselsContainer.appendChild(categorySection);
+                });
+
+                setupSearchFunctionality();
+
+            } catch (error) {
+                document.getElementById('carousels').innerHTML = 'Erro ao carregar o conteúdo: ' + error.message;
             }
-        });
+        }
 
-        // Adiciona carrosséis por categoria
-        Object.keys(categories).forEach(category => {
-            const categorySection = document.createElement('div');
-            categorySection.className = 'section';
-            categorySection.innerHTML = `<h2>${category}</h2>`;
-            
-            const carouselWrapper = document.createElement('div');
-            carouselWrapper.className = 'carousel-wrapper';
+        function setupSearchFunctionality() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
 
-            const carousel = document.createElement('div');
-            carousel.className = 'carousel';
+            searchButton.addEventListener('click', () => {
+                const query = searchInput.value.toLowerCase();
+                const movieCards = document.querySelectorAll('.movie-card');
 
-            categories[category].forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'movie-card';
-                card.innerHTML = `
-                    <a href="${item.url}" target="_blank">
-                        <img src="${item.logo}" alt="${item.name} Logo">
-                        <div class="movie-info">
-                            <h3>${item.name}</h3>
-                        </div>
-                    </a>
-                `;
-                carousel.appendChild(card);
+                movieCards.forEach(card => {
+                    const movieName = card.querySelector('.movie-info h3').textContent.toLowerCase();
+                    if (movieName.includes(query)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
             });
 
-            // Adiciona os botões de navegação
-            const leftButton = document.createElement('button');
-            leftButton.className = 'carousel-button left';
-            leftButton.innerText = '<';
-            leftButton.addEventListener('click', () => {
-                carousel.scrollBy({ left: -carousel.offsetWidth / 5, behavior: 'smooth' });
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchButton.click();
+                }
             });
+        }
 
-            const rightButton = document.createElement('button');
-            rightButton.className = 'carousel-button right';
-            rightButton.innerText = '>';
-            rightButton.addEventListener('click', () => {
-                carousel.scrollBy({ left: carousel.offsetWidth / 5, behavior: 'smooth' });
-            });
-
-            carouselWrapper.appendChild(leftButton);
-            carouselWrapper.appendChild(carousel);
-            carouselWrapper.appendChild(rightButton);
-
-            categorySection.appendChild(carouselWrapper);
-            carouselsContainer.appendChild(categorySection);
-        });
-
-    } catch (error) {
-        document.getElementById('carousels').innerHTML = 'Erro ao carregar o conteúdo: ' + error.message;
-    }
-}
-
-fetchAndProcessContent();
+        fetchAndProcessContent();
     </script>
 </body>
 </html>
