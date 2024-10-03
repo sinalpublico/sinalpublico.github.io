@@ -3,62 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar com Firebase</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f7f7f7;
-        }
-        .container {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Login com Google</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <h1>Login</h1>
+        <button id="google-login">Login com Google</button>
+    </div>
 
-<div class="container">
-    <h2>Registrar</h2>
-    <input type="email" id="registerEmail" placeholder="Email" required>
-    <input type="password" id="registerPassword" placeholder="Senha" required>
-    <button onclick="register()">Registrar</button>
-</div>
-
-<script>
-    // Configurações do Firebase
-    const firebaseConfig = {
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
         apiKey: "AIzaSyDUeuKd35dSbW4He4enydXgjl_G0LSyZA8",
         authDomain: "sorteioskins.firebaseapp.com",
         projectId: "sorteioskins",
@@ -67,24 +24,21 @@
         appId: "1:999880677295:web:0bee0ed97739ed879bc15a"
     };
 
-    // Inicializa o Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
 
-    // Função de registro
-    function register() {
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
+        // Inicialize o Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(() => {
-                alert('Registro bem-sucedido!');
-            })
-            .catch((error) => {
-                alert(error.message);
+        document.getElementById('google-login').onclick = function() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider).then((result) => {
+                const user = result.user;
+                console.log('Usuário logado:', user);
+                // Aqui você pode redirecionar ou armazenar informações do usuário
+            }).catch((error) => {
+                console.error('Erro ao fazer login:', error);
             });
-    }
-</script>
-
+        };
+    </script>
 </body>
 </html>
