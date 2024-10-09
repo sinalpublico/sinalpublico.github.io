@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Contato</title>
+    <title>Lista de Nomes e Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+            padding: 8px;
+        }
+        button {
+            padding: 8px 12px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Contato</h1>
-    <form action="enviar.php" method="POST">
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
-        
-        <label for="email">E-mail:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="mensagem">Mensagem:</label><br>
-        <textarea id="mensagem" name="mensagem" required></textarea><br><br>
-        
-        <input type="submit" value="Enviar">
-    </form>
+    <h1>Lista</h1>
+    <input type="text" id="nome" placeholder="Digite o nome" />
+    <input type="number" id="quantidade" placeholder="Quantidade" />
+    <button onclick="adicionarItem()">Adicionar</button>
+
+    <h2>Resultados</h2>
+    <ul id="lista"></ul>
+
+    <script>
+        function adicionarItem() {
+            const nome = document.getElementById('nome').value.trim();
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+            const lista = document.getElementById('lista');
+
+            if (nome && quantidade > 0) {
+                for (let i = 1; i <= quantidade; i++) {
+                    const item = document.createElement('li');
+                    item.textContent = `${nome} ${i}`;
+                    lista.appendChild(item);
+                }
+
+                // Limpa os campos após adicionar
+                document.getElementById('nome').value = '';
+                document.getElementById('quantidade').value = '';
+            } else {
+                alert('Por favor, preencha ambos os campos corretamente.');
+            }
+        }
+    </script>
 </body>
 </html>
