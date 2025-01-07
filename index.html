@@ -1,65 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticação Mojang</title>
-    <script>
-        function autenticar() {
-            // Obter os valores de email e senha dos campos
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-
-            // Endpoint da API do Mojang para autenticação
-            const url = "https://authserver.mojang.com/authenticate";
-
-            // Criando o objeto de payload para enviar com a requisição
-            const payload = {
-                agent: {
-                    name: 'Minecraft',
-                    version: 1
-                },
-                username: email,
-                password: senha
-            };
-
-            // Usando a API fetch para enviar a requisição
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Falha na autenticação');
-                }
-            })
-            .then(data => {
-                // Se a autenticação for bem-sucedida
-                const token = data.accessToken;
-                alert(`Autenticação bem-sucedida! Token de acesso: ${token}`);
-            })
-            .catch(error => {
-                // Em caso de erro
-                alert(`Erro: ${error.message}`);
-            });
+    <title>sinalpublico</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
-    </script>
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Autenticação de Conta Mojang</h2>
-    <form onsubmit="event.preventDefault(); autenticar();">
-        <label for="email">Email:</label>
-        <input type="email" id="email" required><br><br>
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" required><br><br>
-        
-        <button type="submit">Autenticar</button>
-    </form>
+    <h1>Seja Bem-Vindo</h1>
+    <a href="https://sinalpublico.netlify.app/" class="button">Entrar</a>
 </body>
 </html>
