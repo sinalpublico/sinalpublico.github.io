@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sinalpublico</title>
+    <title>Novo Endereço do Site</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            font-family: Arial, sans-serif;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
         }
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a {
+            font-size: 18px;
+            color: #007bff;
             text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
         }
-        .button:hover {
-            background-color: #0056b3;
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Seja Bem-Vindo</h1>
-    <a href="https://sinalpublico.netlify.app/" class="button">Entrar</a>
+    <div class="container">
+        <h1>O Novo Endereço do Site</h1>
+        <p>Visite o nosso novo endereço:</p>
+        <a href="https://sinalpublico.vercel.app/" target="_blank">https://sinalpublico.vercel.app/</a>
+    </div>
 </body>
 </html>
