@@ -1,5 +1,0 @@
-# Protege imagens de serem hotlinked
-RewriteEngine On
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?sinalpublico\.github.io/ [NC]
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
