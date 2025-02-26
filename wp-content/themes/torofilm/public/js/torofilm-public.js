@@ -1,6 +1,6 @@
 /**
     *   Load More Results v1.0.0
-    * Author: Cenk Ã‡algan
+    * Author: Cenk Çalgan
     * 
     * Options:
     * - tag (object):
@@ -445,7 +445,7 @@ jQuery(document).ready(function($){
                 }
             },
             error: function(data){
-               //OcurriÃ³ un error
+               //Ocurrió un error
                console.log('error 500');
                 $('#form-login-user .mdl-bd').append('<p class="error-login">'+ torofilm_Public.access_error +'</p>');
             },
@@ -557,7 +557,7 @@ jQuery(document).ready(function($){
         }
         if( pass !== passRepeat ) {
             var html = '';
-            html += '<p id="error-tpt" style="margin-top: 10px;" class="msg-d"><i class="fa-exclamation-triangle"></i> Las contraseÃ±as no coinciden</p>';
+            html += '<p id="error-tpt" style="margin-top: 10px;" class="msg-d"><i class="fa-exclamation-triangle"></i> Las contraseñas no coinciden</p>';
             $('#editor-user-pass').append(html);
             setTimeout(function(){ 
                 $('#error-tpt').fadeOut(500);
