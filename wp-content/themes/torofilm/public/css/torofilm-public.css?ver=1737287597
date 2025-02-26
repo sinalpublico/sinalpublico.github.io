@@ -883,4 +883,4 @@ span[class*="type-"]{vertical-align:middle}
 .video-trailer {
     margin-bottom: 0;
 }
-.post-thumbnail .post-ql .lang img {width: auto;}
+.post-thumbnail .post-ql .lang img {width: auto;} 
