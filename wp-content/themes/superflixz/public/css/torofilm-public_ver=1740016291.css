@@ -633,7 +633,7 @@ span[class*="type-"]{vertical-align:middle}
 .post.single .entry-meta{margin-bottom:1rem}
 }
 @media (min-width:992px){
-.side-left .main-site,.side-right .main-site{width:calc(100% - 300px)}
+.side-left .main-site,.side-right .main-site{width:calc(100% - )}
 .side-left .main-site{padding-left:calc(2 * var(--size));order:2}
 .side-right .main-site{padding-right:calc(2 * var(--size))}
 .side-none .sidebar{display:none}
